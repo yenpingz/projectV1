@@ -366,8 +366,8 @@
 
 .bounceInDown {
   animation-name: bounceInDown;
-  -webkit-animation: bounceInDown 3s 1; /* Safari 4.0 - 8.0 */
-  animation: bounceInDown 3s 1;
+  -webkit-animation: bounceInDown 1s 1; /* Safari 4.0 - 8.0 */
+  animation: bounceInDown 1s 1;
 }
 
 @keyframes bounceInLeft {
@@ -586,6 +586,8 @@
 
 .fadeInDown {
   animation-name: fadeInDown;
+  -webkit-animation: fadeInDown 3s 1; /* Safari 4.0 - 8.0 */
+  animation: fadeInDown 3s 1;
 }
 
 @keyframes fadeInDownBig {

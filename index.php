@@ -16,19 +16,7 @@
 
   </head>
 <body>
-
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.10';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-<?php /*test iframe*/ ?>
-
-
-<div class="navbar1">
+<div id="navbar1" class="bounceInDown">
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="0">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -63,7 +51,7 @@
 </nav>
 
 </div>
-<div style="width:100%;">
+<div class="indexCarousel">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -75,15 +63,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="test.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="assets/images/holiday-737497_1920.jpg" alt="Los Angeles" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="test.jpg" alt="Chicago" style="width:100%;">
+        <img src="assets/images/4.jpg" alt="Chicago" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="test.jpg" alt="New york" style="width:100%;">
+        <img src="assets/images/holiday-2103171_1920.jpg" alt="New york" style="width:100%;">
       </div>
     </div>
 
@@ -153,15 +141,7 @@
   </div>
 
 
-          <div class="container" style="clear: both;">
-                <div class="row">
-                  <div class="col-sm-4"></div>
-                  <div class="col-sm-4">
-              <div class="fb-page test" data-href="https://www.facebook.com/%E9%81%8A%E6%A8%82%E7%AF%80-149193725823228/?modal=admin_todo_tour" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/%E9%81%8A%E6%A8%82%E7%AF%80-149193725823228/?modal=admin_todo_tour" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/%E9%81%8A%E6%A8%82%E7%AF%80-149193725823228/?modal=admin_todo_tour">遊樂節</a></blockquote></div>
-              </div>
-                <div class="col-sm-4"></div>
-              </div>
-          </div>
+
 
     <footer class="section section-primary" id="footer">
       <div class="container">
