@@ -1,8 +1,19 @@
 <?php
 require_once("../../connection/database.php");
-$sth = $db->query("SELECT * FROM news ORDER BY publishedDate DESC");/* LIMIT ".$start_from.",". $limit*/
-$all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
-/*$totalRows = count($all_news);*/
+if (isset($_POST["MM_insert"]) && $_POST["MM_insert"] == "INSERT") {
+  $sql= "INSERT INTO productcategory
+          (area,
+          createdDate) VALUES (
+          :area,
+          :createdDate)";
+    $sth = $db ->prepare($sql);
+    $sth ->bindParam(":area", $_POST['area'], PDO::PARAM_STR);
+    $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
+    $sth -> execute();
+
+  header('Location: list.php');
+}
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -13,10 +24,8 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     <title>後台管理系統-TRAVELFUNS</title>
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/adminstyle.css" rel="stylesheet" type="text/css">
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   	<script src="../js/jquery-1.11.2.min.js"></script>
-
   	<!-- Include all compiled plugins (below), or include individual files as needed -->
   	<script src="../js/bootstrap.js"></script>
     <script src="../js/validator.min.js"></script>
@@ -64,48 +73,45 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>最新消息管理</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>地區分類管理-新增</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
             <ul class="breadcrumb">
               <li>
-                <a href="#">主控台</a>
+                <a href="list.php">主控台</a>
               </li>
               <li>
-                <a href="#" class="active">最新消息管理</a>
+                <a href="add.php" class="active">新增地區分類</a>
               </li>
             </ul>
           </div>
         </div>
       <div class="row">
         <div class="col-md-12">
-          <a href="add.php" class="btn btn-default">新增一筆</a>
           <hr>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>上傳時間</th>
-                <th>標題</th>
-                <th>編輯</th>
-                <th>刪除</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($all_news as $row) {?>
-              <tr>
-                <td><?php echo $row['publishedDate'] ?></td>
-                <td><?php echo $row['title'] ?></td>
-                <td><a href="edit.php?newsID=<?php echo $row['newsID'] ?>">編輯</a></td>
-                <td><a href="delete.php?newsID=<?php echo $row['newsID'] ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
-              </tr>
-            <?php } ?>
-            </tbody>
-          </table>
+          <form class="form-horizontal" role="form" data-toggle="validator" action="add.php" method="post">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="area" class="control-label">地區</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="area" name="area" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2 text-right">
+                  <input type="hidden" name="MM_insert" value="INSERT">
+                  <input type="hidden" name="createdDate" value="<?php echo date('Y-m-d H-i-s'); ?>">
+                  <button type="submit" class="btn btn-primary">送出</button>
+                </div>
+              </div>
+            </form>
         </div>
       </div>
 	  </div>

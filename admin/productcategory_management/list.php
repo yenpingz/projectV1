@@ -1,7 +1,7 @@
 <?php
 require_once("../../connection/database.php");
-$sth = $db->query("SELECT * FROM news ORDER BY publishedDate DESC");/* LIMIT ".$start_from.",". $limit*/
-$all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
+$sth = $db->query("SELECT * FROM productcategory");/* LIMIT ".$start_from.",". $limit*/
+$all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
 /*$totalRows = count($all_news);*/
  ?>
 <!DOCTYPE html>
@@ -64,16 +64,16 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>最新消息管理</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>地區分類管理-列表</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
             <ul class="breadcrumb">
               <li>
-                <a href="#">主控台</a>
+                <a href="list.php">主控台</a>
               </li>
               <li>
-                <a href="#" class="active">最新消息管理</a>
+                <a href="list.php" class="active">地區分類</a>
               </li>
             </ul>
           </div>
@@ -89,19 +89,17 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
           <table class="table">
             <thead>
               <tr>
-                <th>上傳時間</th>
-                <th>標題</th>
+                <th>地區</th>
                 <th>編輯</th>
                 <th>刪除</th>
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($all_news as $row) {?>
+            <?php foreach ($all_category as $row) {?>
               <tr>
-                <td><?php echo $row['publishedDate'] ?></td>
-                <td><?php echo $row['title'] ?></td>
-                <td><a href="edit.php?newsID=<?php echo $row['newsID'] ?>">編輯</a></td>
-                <td><a href="delete.php?newsID=<?php echo $row['newsID'] ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
+                <td><?php echo $row['area'] ?></td>
+                <td><a href="edit.php?productCategoryID=<?php echo $row['productCategoryID'] ?>">編輯</a></td>
+                <td><a href="delete.php?productCategoryID=<?php echo $row['productCategoryID'] ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
               </tr>
             <?php } ?>
             </tbody>

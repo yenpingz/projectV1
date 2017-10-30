@@ -1,7 +1,7 @@
 <?php
 require_once("../../connection/database.php");
-$sth = $db->query("SELECT * FROM news ORDER BY publishedDate DESC");/* LIMIT ".$start_from.",". $limit*/
-$all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
+$sth = $db->query("SELECT * FROM member");/* LIMIT ".$start_from.",". $limit*/
+$all_member = $sth->fetchAll(PDO::FETCH_ASSOC);
 /*$totalRows = count($all_news);*/
  ?>
 <!DOCTYPE html>
@@ -64,23 +64,23 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>最新消息管理</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>會員管理-列表</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
             <ul class="breadcrumb">
               <li>
-                <a href="#">主控台</a>
+                <a href="list.php">主控台</a>
               </li>
               <li>
-                <a href="#" class="active">最新消息管理</a>
+                <a href="list.php" class="active">會員列表</a>
               </li>
             </ul>
           </div>
         </div>
       <div class="row">
         <div class="col-md-12">
-          <a href="add.php" class="btn btn-default">新增一筆</a>
+          <a href="add.php" class="btn btn-default">新增會員</a>
           <hr>
         </div>
       </div>
@@ -89,19 +89,23 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
           <table class="table">
             <thead>
               <tr>
-                <th>上傳時間</th>
-                <th>標題</th>
+                <th>會員姓名</th>
+                <th>會員帳號</th>
+                <th>行動電話</th>
+                <th>Email</th>
                 <th>編輯</th>
                 <th>刪除</th>
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($all_news as $row) {?>
+            <?php foreach ($all_member as $row) {?>
               <tr>
-                <td><?php echo $row['publishedDate'] ?></td>
-                <td><?php echo $row['title'] ?></td>
-                <td><a href="edit.php?newsID=<?php echo $row['newsID'] ?>">編輯</a></td>
-                <td><a href="delete.php?newsID=<?php echo $row['newsID'] ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
+                <td><?php echo $row['name'] ?></td>
+                <td><?php echo $row['account'] ?></td>
+                <td><?php echo $row['phone'] ?></td>
+                <td><?php echo $row['email'] ?></td>
+                <td><a href="edit.php?memberID=<?php echo $row['memberID'] ?>">編輯</a></td>
+                <td><a href="delete.php?memberID=<?php echo $row['memberID'] ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
               </tr>
             <?php } ?>
             </tbody>
