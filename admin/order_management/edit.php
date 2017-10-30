@@ -1,8 +1,21 @@
 <?php
 require_once("../../connection/database.php");
-$sth = $db->query("SELECT * FROM productcategory");/* LIMIT ".$start_from.",". $limit*/
-$all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
-/*$totalRows = count($all_news);*/
+if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
+     $sql= "UPDATE productcategory SET
+               area = :area,
+               updatedDate = :updatedDate WHERE productCategoryID=:productCategoryID";
+     $sth = $db ->prepare($sql);
+     $sth ->bindParam(":area", $_POST['area'], PDO::PARAM_STR);
+     $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
+     $sth ->bindParam(":productCategoryID", $_POST['productCategoryID'], PDO::PARAM_INT);
+     $sth -> execute();
+
+     header('Location: list.php');
+   }
+   $sth = $db->query("SELECT * FROM productcategory WHERE productCategoryID=".$_GET['productCategoryID']);
+   $category = $sth->fetch(PDO::FETCH_ASSOC);
+
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -13,14 +26,11 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
     <title>後台管理系統-TRAVELFUNS</title>
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/adminstyle.css" rel="stylesheet" type="text/css">
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   	<script src="../js/jquery-1.11.2.min.js"></script>
-
   	<!-- Include all compiled plugins (below), or include individual files as needed -->
   	<script src="../js/bootstrap.js"></script>
     <script src="../js/validator.min.js"></script>
-
   </head>
   <body>
     <div class="navbar navbar-default navbar-static-top" id="nav">
@@ -64,46 +74,46 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>地區分類管理-列表</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>地區分類管理-編輯</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
             <ul class="breadcrumb">
               <li>
-                <a href="list.php">主控台</a>
+                <a href="#">主控台</a>
               </li>
               <li>
-                <a href="list.php" class="active">地區分類</a>
+                <a href="#" class="active">最新消息管理</a>
               </li>
             </ul>
           </div>
         </div>
       <div class="row">
         <div class="col-md-12">
-          <a href="add.php" class="btn btn-default">新增一筆</a>
           <hr>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>地區</th>
-                <th>編輯</th>
-                <th>刪除</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($all_category as $row) {?>
-              <tr>
-                <td><a href="../product_management/list.php?productCategoryID=<?php echo $row['productCategoryID']; ?>"><?php echo $row['area']; ?></a></td>
-                <td><a href="edit.php?productCategoryID=<?php echo $row['productCategoryID']; ?>">編輯</a></td>
-                <td><a href="delete.php?productCategoryID=<?php echo $row['productCategoryID']; ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
-              </tr>
-            <?php } ?>
-            </tbody>
-          </table>
+          <form class="form-horizontal" role="form" data-toggle="validator" action="edit.php" method="post">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="area" class="control-label">地區</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="area" name="area" value="<?php echo $category['area']; ?>" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2 text-right">
+                  <input type="hidden" name="productCategoryID" value="<?php echo $category['productCategoryID'] ?>">
+                  <input type="hidden" name="MM_update" value="UPDATE">
+                  <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H-i-s'); ?>">
+                  <button type="submit" class="btn btn-primary">送出</button>
+                </div>
+              </div>
+            </form>
         </div>
       </div>
 	  </div>

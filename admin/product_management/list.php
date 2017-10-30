@@ -1,7 +1,8 @@
 <?php
 require_once("../../connection/database.php");
-$sth = $db->query("SELECT * FROM productcategory");/* LIMIT ".$start_from.",". $limit*/
-$all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
+$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['productCategoryID']);/* LIMIT ".$start_from.",". $limit*/
+$all_product = $sth->fetchAll(PDO::FETCH_ASSOC);
+$total = count($all_product);
 /*$totalRows = count($all_news);*/
  ?>
 <!DOCTYPE html>
@@ -20,6 +21,7 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
   	<!-- Include all compiled plugins (below), or include individual files as needed -->
   	<script src="../js/bootstrap.js"></script>
     <script src="../js/validator.min.js"></script>
+
 
   </head>
   <body>
@@ -64,7 +66,7 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>地區分類管理-列表</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>行程管理-列表</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
@@ -73,14 +75,14 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <a href="list.php">主控台</a>
               </li>
               <li>
-                <a href="list.php" class="active">地區分類</a>
+                <a href="list.php" class="active">行程管理</a>
               </li>
             </ul>
           </div>
         </div>
       <div class="row">
         <div class="col-md-12">
-          <a href="add.php" class="btn btn-default">新增一筆</a>
+          <a href="add.php?productCategoryID=<?php echo $_GET['productCategoryID'];?>" class="btn btn-default">新增行程</a>
           <hr>
         </div>
       </div>
@@ -89,17 +91,22 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
           <table class="table">
             <thead>
               <tr>
-                <th>地區</th>
+                <th>行程</th>
                 <th>編輯</th>
                 <th>刪除</th>
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($all_category as $row) {?>
+            <?php if($total>0){ ?>
+            <?php foreach ($all_product as $row) {?>
               <tr>
-                <td><a href="../product_management/list.php?productCategoryID=<?php echo $row['productCategoryID']; ?>"><?php echo $row['area']; ?></a></td>
-                <td><a href="edit.php?productCategoryID=<?php echo $row['productCategoryID']; ?>">編輯</a></td>
-                <td><a href="delete.php?productCategoryID=<?php echo $row['productCategoryID']; ?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><a href="edit.php?productID=<?php echo $row['productID']; ?>&productCategoryID=<?php echo $row['productCategoryID'];?>">編輯</a></td>
+                <td><a href="delete.php?productID=<?php echo $row['productID']; ?>&productCategoryID=<?php echo $row['productCategoryID'];?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
+              </tr>
+            <?php }}else{ ?>
+              <tr>
+                <td colspan="5">目前無資料，請新增一筆</td>
               </tr>
             <?php } ?>
             </tbody>
