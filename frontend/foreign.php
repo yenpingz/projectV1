@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/validator.min.js"></script>
-	<script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/validator.min.js"></script>
+	<script type="text/javascript" src="../assets/js/jquery.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
 
   </head>
 <body>
@@ -60,10 +60,9 @@
     </div>
   </div>
 </nav>
-
 </div>
-<div style="width:100%;">
-  <img src="assets/images/index.png" alt="" style="width:100%;">
+<div>
+  <img src="" alt="">
 </div>
 
 
@@ -76,19 +75,19 @@
   <div class="container" style="clear: both;">
     <div class="row">
       <div class="col-sm-4">
-        <a href="#8"><img src="test.jpg" style="height:225px; weight:150px;" alt=""></a>
+        <a href="#8"><img src="../assets/images/sushi.jpg" style="height:225px; weight:150px;" alt=""></a>
         <h3>Column 1</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
       </div>
       <div class="col-sm-4">
-        <img src="test.jpg" style="height:225px; weight:150px;" alt="">
+        <img src="../assets/images/flower.jpg" style="height:225px; weight:150px;" alt="">
         <h3>Column 2</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
       </div>
       <div class="col-sm-4">
-        <img src="test.jpg" style="height:225px; weight:150px;" alt="">
+        <img src="../assets/images/fireworks.jpg" style="height:225px; weight:150px;" alt="">
         <h3>Column 3</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>

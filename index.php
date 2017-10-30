@@ -29,17 +29,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">公司經營理念</a></li>
+        <li><a href="frontend/about.php?id=1">公司經營理念</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">國外旅遊<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="foreign.php">日本</a></li>
+            <li><a href="frontend/foreign.php">日本</a></li>
             <li><a href="#2">大陸</a></li>
             <li><a href="#3">東南亞</a></li>
             <li><a href="#4">歐洲</a></li>
           </ul>
         </li>
-        <li><a href="domestic.php">國內旅遊</a></li>
+        <li><a href="frontend/productcategory.php">國內旅遊</a></li>
         <li><a href="#5">聯絡方式</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -49,7 +49,6 @@
     </div>
   </div>
 </nav>
-
 </div>
 <div class="indexCarousel">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -64,14 +63,26 @@
     <div class="carousel-inner">
       <div class="item active">
         <img src="assets/images/holiday-737497_1920.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>New York</h1>
+          <p>We love the Big Apple!</p>
+        </div>
       </div>
 
       <div class="item">
         <img src="assets/images/4.jpg" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>New York</h1>
+          <p>We love the Big Apple!</p>
+        </div>
       </div>
 
       <div class="item">
         <img src="assets/images/holiday-2103171_1920.jpg" alt="New york" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>New York</h1>
+          <p>We love the Big Apple!</p>
+        </div>
       </div>
     </div>
 
@@ -94,7 +105,7 @@
   <p>Resize this responsive page to see the effect!</p>
 </div>
 
-  <div class="container" style="clear: both;">
+  <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <a href="#8"><img src="test.jpg" style="height:225px; weight:150px;" alt=""></a>
@@ -117,7 +128,7 @@
     </div>
   </div>
 
-  <div class="container" style="clear: both;">
+  <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <a href="#8"><img src="test.jpg" style="height:225px; weight:150px;" alt=""></a>
