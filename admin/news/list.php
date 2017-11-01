@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once("../../connection/database.php");
 $sth = $db->query("SELECT * FROM news ORDER BY publishedDate DESC");/* LIMIT ".$start_from.",". $limit*/
 $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -52,8 +53,8 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="../member_management/list.php">會員管理</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="frontend/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="../logout.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li></li>
           </ul>
         </div>
       </div>
