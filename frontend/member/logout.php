@@ -1,7 +1,7 @@
 <?php
-require_once('../connection/database.php');
-$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
-$product = $sth->fetchAll(PDO::FETCH_ASSOC);
+session_start();
+unset($_SESSION['account']);
+unset($_SESSION['memberID']);
  ?>
 <!DOCTYPE html>
 <html >
@@ -10,29 +10,14 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../assets/js/validator.min.js"></script>
-	<script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/validator.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/jquery.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/animate.css" rel="stylesheet" type="text/css">
-    <script>
-      $(function(){
-      	$('.hoverA').hover(
-          function(){
-            //滑入
-            $(this).find('img').animate({opacity: 0.5},100);
-          },
-          function(){
-            //滑出
-            $(this).find('img').animate({opacity: 1},100);
-          }
-        )
-
-      });
-      </script>
+    <link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/animate.css" rel="stylesheet" type="text/css">
 
   </head>
 <body>
@@ -63,36 +48,54 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
         <li><a href="#5">聯絡方式</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+
+        <?php if(!isset($_SESSION['account'])){ ?>
         <li><a href="frontend/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <?php }else{ ?>
+        <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <?php } ?>
       </ul>
     </div>
   </div>
 </nav>
 </div>
-<div class="jumbotron text-center title">
-  <h1 class="bounceInDown"><?php if($_GET['id']==3) echo "國內旅遊"; else echo "日本旅遊"; ?></h1>
+<div class="jumbotron text-center">
+  <h1 class="bounceInDown">會員專區 </h1>
+</div>
+
+<div class="container" style="height:100px;">
+  <div class="row">
+    <div class="row" id="MemberForm">
+
+   </div>
+  </div>
 </div>
 
   <div class="container">
     <div class="row">
-      <?php foreach ($product as $row) {
-        ?>
-      <div class="col-sm-4 hoverA" >
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><img src="../uploads/products/<?php echo $row['picture'];?>" style="height:200px; weight:120px;" alt=""></a>
-        <h3><?php echo $row['name']; ?></h3>
-        <p>NT$<?php echo $row['price']; ?></p>
-        <p><?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?></p>
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>" class="more">Read More</a>
-      </div>
-    <?php } ?>
+      <div class="row" id="MemberForm">
+              <div class="col-md-12">
+                <div id="MemberForm">
+         					<h2 style="text-align:center;">登出</h2>
+         					<p>
+         						您已成功登出!
+         					</p>
+         				</div>
+             </div>
+           </div>
     </div>
   </div>
-  <hr>
-  <div class="container" style="height:10px;">
+
+  <div class="container" style="height:200px;">
     <div class="row">
+      <div class="row" id="MemberForm">
+
+     </div>
     </div>
   </div>
+
+
 
 
 

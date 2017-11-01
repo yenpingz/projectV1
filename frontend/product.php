@@ -1,7 +1,9 @@
 <?php
 require_once('../connection/database.php');
-$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
-$product = $sth->fetchAll(PDO::FETCH_ASSOC);
+$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id2']);/* LIMIT ".$start_from.",". $limit*/
+$All_product = $sth->fetchAll(PDO::FETCH_ASSOC);
+$sth2 = $db->query("SELECT * FROM product WHERE productID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
+$product = $sth2->fetch(PDO::FETCH_ASSOC);
  ?>
 <!DOCTYPE html>
 <html >
@@ -18,21 +20,6 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/animate.css" rel="stylesheet" type="text/css">
-    <script>
-      $(function(){
-      	$('.hoverA').hover(
-          function(){
-            //滑入
-            $(this).find('img').animate({opacity: 0.5},100);
-          },
-          function(){
-            //滑出
-            $(this).find('img').animate({opacity: 1},100);
-          }
-        )
-
-      });
-      </script>
 
   </head>
 <body>
@@ -70,29 +57,29 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </nav>
 </div>
-<div class="jumbotron text-center title">
-  <h1 class="bounceInDown"><?php if($_GET['id']==3) echo "國內旅遊"; else echo "日本旅遊"; ?></h1>
+<div class="jumbotron text-center">
+  <h1 class="bounceInDown"><?php echo $product['name']; ?></h1>
 </div>
 
-  <div class="container">
+  <div class="container" >
     <div class="row">
-      <?php foreach ($product as $row) {
-        ?>
-      <div class="col-sm-4 hoverA" >
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><img src="../uploads/products/<?php echo $row['picture'];?>" style="height:200px; weight:120px;" alt=""></a>
-        <h3><?php echo $row['name']; ?></h3>
-        <p>NT$<?php echo $row['price']; ?></p>
-        <p><?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?></p>
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>" class="more">Read More</a>
+      <div class="col-sm-4" style="background-color:#aaa;">
+        <nav>
+          <?php foreach ($All_product as $row ) { ?>
+          <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><h3><?php echo $row['name']; ?></h3></a>
+        <?php } ?>
+      </nva>
       </div>
-    <?php } ?>
+      <div class="col-sm-8" >
+        <img src="../uploads/products/<?php echo $product['picture']; ?>" style="height:225px; weight:150px;" alt="">
+        <div class="product-content">
+          <h3><?php echo 'NT$ '.$product['price']; ?></h3>
+          <p><?php echo $product['description']; ?></p>
+        </div>
+      </div>
     </div>
   </div>
-  <hr>
-  <div class="container" style="height:10px;">
-    <div class="row">
-    </div>
-  </div>
+
 
 
 

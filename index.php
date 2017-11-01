@@ -1,3 +1,9 @@
+<?php
+require_once('connection/database.php');
+$sth = $db->query("SELECT * FROM news ");/* LIMIT ".$start_from.",". $limit*/
+$all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+ ?>
 <!DOCTYPE html>
 <html >
 <head>
@@ -13,9 +19,24 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/animate.css" rel="stylesheet" type="text/css">
+    <script>
+      $(function(){
+      	$('#newslist .cover').hover(
+          function(){
+            //滑入
+            $(this).find('img').animate({opacity: 0.5},100);
+          },
+          function(){
+            //滑出
+            $(this).find('img').animate({opacity: 1},100);
+          }
+        )
+
+      });
+      </script>
 
   </head>
-<body>
+<body class="body">
 <div id="navbar1" class="bounceInDown">
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="0">
   <div class="container-fluid">
@@ -33,18 +54,18 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">國外旅遊<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="frontend/foreign.php">日本</a></li>
+            <li><a href="frontend/productcategory.php?id=4">日本</a></li>
             <li><a href="#2">大陸</a></li>
             <li><a href="#3">東南亞</a></li>
             <li><a href="#4">歐洲</a></li>
           </ul>
         </li>
-        <li><a href="frontend/productcategory.php">國內旅遊</a></li>
+        <li><a href="frontend/productcategory.php?id=3">國內旅遊</a></li>
         <li><a href="#5">聯絡方式</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="frontend/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="frontend/member/logout.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="frontend/member/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -64,16 +85,16 @@
       <div class="item active">
         <img src="assets/images/holiday-737497_1920.jpg" alt="Los Angeles" style="width:100%;">
         <div class="carousel-caption">
-          <h1>New York</h1>
-          <p>We love the Big Apple!</p>
+          <h1>沙灘</h1>
+          <p>冬季避冬聖地!</p>
         </div>
       </div>
 
       <div class="item">
         <img src="assets/images/4.jpg" alt="Chicago" style="width:100%;">
         <div class="carousel-caption">
-          <h1>New York</h1>
-          <p>We love the Big Apple!</p>
+          <h1>海島假期</h1>
+          <p>冬季避冬聖地!</p>
         </div>
       </div>
 
@@ -101,57 +122,21 @@
 
 
 <div class="jumbotron text-center">
-  <h1 class="bounceInDown">My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p>
+  <h1 class="bounceInDown">精選行程</h1>
+  <p>享受!</p>
 </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <a href="#8"><img src="test.jpg" style="height:225px; weight:150px;" alt=""></a>
-        <h3>Column 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <div class="row" id="newslist">
+      <?php foreach ($all_news as $row) {?>
+      <div class="col-sm-4 cover">
+        <a href="frontend/product.php?id=<?php echo $row['productID']; ?>"><img src="test.jpg" style="height:225px; weight:150px;" alt="" class="img-thumbnail"></a>
+        <h3><?php echo $row['title']; ?></h3>
+        <?php echo $row['content']; ?>
       </div>
-      <div class="col-sm-4">
-        <img src="test.jpg" style="height:225px; weight:150px;" alt="">
-        <h3>Column 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-      <div class="col-sm-4">
-        <img src="test.jpg" style="height:225px; weight:150px;" alt="">
-        <h3>Column 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
+      <?php }?>
     </div>
   </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <a href="#8"><img src="test.jpg" style="height:225px; weight:150px;" alt=""></a>
-        <h3>Column 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-      <div class="col-sm-4">
-        <img src="test.jpg" style="height:225px; weight:150px;" alt="">
-        <h3>Column 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-      <div class="col-sm-4">
-        <img src="test.jpg" style="height:225px; weight:150px;" alt="">
-        <h3>Column 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-    </div>
-  </div>
-
-
 
 
     <footer class="section section-primary" id="footer">
