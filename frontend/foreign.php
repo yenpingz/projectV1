@@ -129,7 +129,7 @@
               </div>
           </div>
 
-    <footer class="section section-primary" id="footer2">
+    <footer class="section section-primary" id="footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-6">

@@ -1,8 +1,3 @@
-<?php
-require_once('../connection/database.php');
-$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
-$product = $sth->fetchAll(PDO::FETCH_ASSOC);
- ?>
 <!DOCTYPE html>
 <html >
 <head>
@@ -18,21 +13,6 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/animate.css" rel="stylesheet" type="text/css">
-    <script>
-      $(function(){
-      	$('.hoverA').hover(
-          function(){
-            //滑入
-            $(this).find('img').animate({opacity: 0.5},100);
-          },
-          function(){
-            //滑出
-            $(this).find('img').animate({opacity: 1},100);
-          }
-        )
-
-      });
-      </script>
 
   </head>
 <body>
@@ -70,30 +50,32 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </nav>
 </div>
-<div class="jumbotron text-center title">
-  <h1 class="bounceInDown"><?php if($_GET['id']==3) echo "國內旅遊"; else echo "日本旅遊"; ?></h1>
+<div class="jumbotron text-center">
+  <h1 class="bounceInDown">台灣</h1>
 </div>
 
   <div class="container">
     <div class="row">
-      <?php foreach ($product as $row) {
-        ?>
-      <div class="col-sm-4 hoverA" >
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><img src="../uploads/products/<?php echo $row['picture'];?>" style="height:200px; weight:120px;" alt=""></a>
-        <h3><?php echo $row['name']; ?></h3>
-        <p>NT$<?php echo $row['price']; ?></p>
-        <p><?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?></p>
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>" class="more">Read More</a>
+      <div class="col-sm-4">
+        <a href="#8"><img src="../assets/images/test.jpg" style="height:225px; weight:150px;" alt=""></a>
+        <h3>Column 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
       </div>
-    <?php } ?>
+      <div class="col-sm-4">
+        <img src="../assets/images/test1.jpg" style="height:225px; weight:150px;" alt="">
+        <h3>Column 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="../assets/images/test2.jpg" style="height:225px; weight:150px;" alt="">
+        <h3>Column 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      </div>
     </div>
   </div>
-  <hr>
-  <div class="container" style="height:10px;">
-    <div class="row">
-    </div>
-  </div>
-
 
 
 

@@ -26,7 +26,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     <div class="navbar navbar-default navbar-static-top" id="nav">
       <div class="container">
         <div class="navbar-header">
-        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#myNavbar">
+        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#navbar-ex-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -48,8 +48,8 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="#4">歐洲</a></li>
               </ul>
             </li>
-            <li><a href="../productcategory_management/list.php">產品管理</a></li>
-            <li><a href="../member_management/list.php">會員管理</a></li>
+            <li><a href="#4">產品管理</a></li>
+            <li><a href="#5">會員管理</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

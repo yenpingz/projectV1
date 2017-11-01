@@ -28,7 +28,7 @@ $total = count($all_product);
     <div class="navbar navbar-default navbar-static-top" id="nav">
       <div class="container">
         <div class="navbar-header">
-        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#myNavbar">
+        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#navbar-ex-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -83,7 +83,6 @@ $total = count($all_product);
       <div class="row">
         <div class="col-md-12">
           <a href="add.php?productCategoryID=<?php echo $_GET['productCategoryID'];?>" class="btn btn-default">新增行程</a>
-          <a href="../productcategory_management/list.php?productCategoryID=<?php echo $_GET['productCategoryID'];?>" class="btn btn-default">返回</a>
           <hr>
         </div>
       </div>

@@ -1,6 +1,5 @@
 <?php
 require_once("../../connection/database.php");
-
 if (isset($_POST["MM_insert"]) && $_POST["MM_insert"] == "INSERT") {
   $sql= "INSERT INTO news
           (publishedDate,
@@ -141,6 +140,7 @@ if (isset($_POST["MM_insert"]) && $_POST["MM_insert"] == "INSERT") {
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+
               <div class="form-group">
                 <div class="col-sm-2">
                   <label for="title" class="control-label">標題</label>
