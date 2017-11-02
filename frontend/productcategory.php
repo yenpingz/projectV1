@@ -83,7 +83,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
         <h3><?php echo $row['name']; ?></h3>
         <p>NT$<?php echo $row['price']; ?></p>
         <p><?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?></p>
-        <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>" class="more">Read More</a>
+        <button type="button" class="btn btn-info" style="margin-left:30%;"><a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>" class="more">查看更多</a></button>
       </div>
     <?php } ?>
     </div>
@@ -93,9 +93,6 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
     <div class="row">
     </div>
   </div>
-
-
-
 
     <footer class="section section-primary" id="footer">
       <div class="container">

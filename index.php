@@ -50,12 +50,12 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="frontend/about.php?id=1">公司經營理念</a></li>
+        <li><a href="index.php#indexabout">公司簡介</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">國外旅遊<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="frontend/productcategory.php?id=4">日本</a></li>
-            <li><a href="#2">大陸</a></li>
+            <li><a href="frontend/productcategory.php?id=6">中國</a></li>
             <li><a href="#3">東南亞</a></li>
             <li><a href="#4">歐洲</a></li>
           </ul>
@@ -101,8 +101,8 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
       <div class="item">
         <img src="assets/images/holiday-2103171_1920.jpg" alt="New york" style="width:100%;">
         <div class="carousel-caption">
-          <h1>New York</h1>
-          <p>We love the Big Apple!</p>
+          <h1>長灘島-五天四夜</h1>
+          <p>海島風情，浮淺遊樂!</p>
         </div>
       </div>
     </div>
@@ -133,8 +133,60 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
         <a href="frontend/product.php?id=<?php echo $row['productID']; ?>"><img src="test.jpg" style="height:225px; weight:150px;" alt="" class="img-thumbnail"></a>
         <h3><?php echo $row['title']; ?></h3>
         <?php echo $row['content']; ?>
+        <button type="button" class="btn btn-info" style="margin-left:38%;">前往頁面</button>
       </div>
       <?php }?>
+    </div>
+  </div>
+
+  <a id="indexabout"></a>
+  <div class="about-color">
+    <hr>
+      <h3>公司簡介</h3>
+    <hr>
+  </div>
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-6 cover"><img src="assets/images/com.jpg" style="width:100%" alt=""></div>
+        <div class="col-sm-6 cover">
+          <ul>
+            <li><h3>公司名稱:</h3></li>
+            <li><h3>資本額:</h3></li>
+            <li><h3>地址:</h3></li>
+            <li><h3>電話:</h3></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <a id="indexcontact"></a>
+  <div class="container" >
+    <div class="row">
+              <hr>
+              <h3>聯絡方式</h3>
+              <hr>
+              <div class="container" >
+
+                  <form class="form-horizontal" action="/action_page.php">
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="email">Email:</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="pwd">Password:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+            </div>
     </div>
   </div>
 

@@ -57,24 +57,27 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
   </div>
 </nav>
 </div>
-<div class="jumbotron text-center">
-  <h1 class="bounceInDown"><?php echo $product['name']; ?></h1>
+<div>
+  <img src="../uploads/products/<?php echo $product['picture']; ?>" alt="">
 </div>
 
   <div class="container" >
     <div class="row">
-      <div class="col-sm-4" style="background-color:#aaa;">
+      <div class="col-sm-4" >
         <nav>
+          <h3>相關行程</h3>
           <?php foreach ($All_product as $row ) { ?>
-          <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><h3><?php echo $row['name']; ?></h3></a>
-        <?php } ?>
+          <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><h3 id="namehover"><?php echo $row['name']; ?></h3></a>
+          <?php } ?>
       </nva>
       </div>
       <div class="col-sm-8" >
-        <img src="../uploads/products/<?php echo $product['picture']; ?>" style="height:225px; weight:150px;" alt="">
         <div class="product-content">
+          <h3><?php echo $product['name']; ?></h3>
           <h3><?php echo 'NT$ '.$product['price']; ?></h3>
+          <button type="button" class="btn btn-info" style="margin-left:45%;">購買行程</button>
           <p><?php echo $product['description']; ?></p>
+
         </div>
       </div>
     </div>
