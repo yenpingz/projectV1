@@ -1,8 +1,3 @@
-<?php
-require_once('../connection/database.php');
-$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
-$product = $sth->fetchAll(PDO::FETCH_ASSOC);
- ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +35,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                         <div class="carousel-inner">
 
                           <div class="item active">
-                            <img src="banner2_01.jpg" alt="Los Angeles" style="width:100%;">
+                            <img src="../assets/images/bannertext_02.jpg" alt="Los Angeles" style="width:100%;">
                             <div class="carousel-caption">
                               <h3>Los Angeles</h3>
                               <p>LA is always so much fun!</p>
@@ -48,7 +43,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                           </div>
 
                           <div class="item">
-                            <img src="banner2_01.jpg" alt="Chicago" style="width:100%;">
+                            <img src="../assets/images/bannertext_02.jpg" alt="Chicago" style="width:100%;">
                             <div class="carousel-caption">
                               <h3>Chicago</h3>
                               <p>Thank you, Chicago!</p>
@@ -56,7 +51,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                           </div>
 
                           <div class="item">
-                            <img src="banner2_01.jpg" alt="New York" style="width:100%;">
+                            <img src="../assets/images/bannertext_02.jpg" alt="New York" style="width:100%;">
                             <div class="carousel-caption">
                               <h3>New York</h3>
                               <p>We love the Big Apple!</p>
@@ -86,29 +81,53 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                     <div id="services" class="container-fluid">
                       <div class="text-center">
-                        <h2><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==6){echo "中國";} if($_GET['id']==3){echo "台灣";}  ?>地區</h2>
-                        <h4><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==6){echo "中國";} if($_GET['id']==3){echo "國內";} ?>優質旅行</h4>
+                        <h2>國外旅遊</h2>
                       </div>
                       <div class="row slideanim">
-                        <?php foreach ($product as $row) {  ?>
                         <div class="col-sm-4 col-xs-12">
                           <div class="panel panel-default text-center">
                             <div class="panel-heading">
-                              <h1><?php echo $row['name']; ?></h1>
+                              <h1>日本行程</h1>
                             </div>
-                            <img src="../uploads/products/<?php echo $row['picture']; ?>" width="100%" height="198" alt=""/>
-                            <div class="panel-body">
-                              <?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?>
-                            </div>
+                            <img src="../img2_04.jpg" width="100%" height="198" alt=""/>
                             <div class="panel-footer">
-                              <h3>NT$<?php echo $row['price']; ?></h3>
-                              <h4>dqwdqwdqwdwq</h4>
-                              <button class="btn btn-lg"><a href="product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>">查看內容</a></button>
+
+                              <button class="btn btn-lg"> <a href="productlist.php?id=4">前往查看</a></button>
                             </div>
                           </div>
                         </div>
-                      <?php } ?>
-                        
+                        <div class="col-sm-4 col-xs-12">
+                          <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                              <h1>歐洲行程</h1>
+                            </div>
+                            <div class="panel-footer">
+                              <h3>$29</h3>
+                              <h4>per month</h4>
+                              <button class="btn btn-lg">Sign Up</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                          <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                              <h1>中國行程</h1>
+                            </div>
+                            <div class="panel-body">
+                              <p><strong>100</strong> Lorem</p>
+                              <p><strong>50</strong> Ipsum</p>
+                              <p><strong>25</strong> Dolor</p>
+                              <p><strong>10</strong> Sit</p>
+                              <p><strong>Endless</strong> Amet</p>
+                            </div>
+                            <div class="panel-footer">
+                              <h3>$49</h3>
+                              <h4>per month</h4>
+                              <button class="btn btn-lg"> <a href="productlist.php?id=6">前往查看</a></button>
+                            </div>
+                          </div>
+                        </div>
+
 
                       </div>
                     </div>

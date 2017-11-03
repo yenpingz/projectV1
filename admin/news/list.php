@@ -81,7 +81,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
         </div>
       <div class="row">
         <div class="col-md-12">
-          <a href="add.php" class="btn btn-default">新增一筆</a>
+          <a href="../productcategory_management/list.php" class="btn btn-default">返回新增</a>
           <hr>
         </div>
       </div>

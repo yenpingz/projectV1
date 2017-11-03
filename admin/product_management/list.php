@@ -92,6 +92,7 @@ $total = count($all_product);
           <table class="table">
             <thead>
               <tr>
+                <th>加入最新消息</th>
                 <th>行程</th>
                 <th>編輯</th>
                 <th>刪除</th>
@@ -101,6 +102,7 @@ $total = count($all_product);
             <?php if($total>0){ ?>
             <?php foreach ($all_product as $row) {?>
               <tr>
+                <td><a href="../news/add.php?productID=<?php echo $row['productID']; ?>&productCategoryID=<?php echo $row['productCategoryID'];?>" onclick="if(!confirm('是否加入最新消息？')){return false;};">加入最新消息</a></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><a href="edit.php?productID=<?php echo $row['productID']; ?>&productCategoryID=<?php echo $row['productCategoryID'];?>">編輯</a></td>
                 <td><a href="delete.php?productID=<?php echo $row['productID']; ?>&productCategoryID=<?php echo $row['productCategoryID'];?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>

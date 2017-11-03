@@ -4,36 +4,22 @@ require_once("../../connection/database.php");
 if (isset($_POST["MM_insert"]) && $_POST["MM_insert"] == "INSERT") {
   $sql= "INSERT INTO news
           (publishedDate,
-          price,
-          picture,
           title,
           content,
-          createdDate,
-          productCategoryID,
-          productID) VALUES (
+          createdDate) VALUES (
           :publishedDate,
-          :price,
-          :picture,
           :title,
           :content,
-          :createdDate,
-          :productCategoryID,
-          :productID)";
+          :createdDate)";
     $sth = $db ->prepare($sql);
     $sth ->bindParam(":publishedDate", $_POST['publishedDate'], PDO::PARAM_STR);
-    $sth ->bindParam("price", $_POST['price'], PDO::PARAM_STR);
-    $sth ->bindParam("picture", $_POST['picture'], PDO::PARAM_STR);
     $sth ->bindParam("title", $_POST['title'], PDO::PARAM_STR);
     $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
     $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
-    $sth ->bindParam(":productID", $_POST['productID'], PDO::PARAM_INT);
-    $sth ->bindParam(":productCategoryID", $_POST['productCategoryID'], PDO::PARAM_INT);
     $sth -> execute();
 
   header('Location: list.php');
 }
-$sth = $db->query("SELECT * FROM product WHERE productID=".$_GET['productID']);/* LIMIT ".$start_from.",". $limit*/
-$product = $sth->fetch(PDO::FETCH_ASSOC);
 
  ?>
 <!DOCTYPE html>
@@ -160,7 +146,7 @@ $product = $sth->fetch(PDO::FETCH_ASSOC);
                   <label for="title" class="control-label">標題</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="title" name="title" value="<?php echo $product['name']; ?>" required>
+                  <input type="text" class="form-control" id="title" name="title" required>
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
@@ -169,26 +155,14 @@ $product = $sth->fetch(PDO::FETCH_ASSOC);
                   <label for="content" class="control-label">內容</label>
                 </div>
                 <div class="col-sm-10">
-                  <textarea class="form-control" id="content" name="content" data-minlength="6"><?php echo $product['description']; ?></textarea>
+                  <textarea class="form-control" id="content" name="content" data-minlength="6"></textarea>
                   <div class="help-block">最少輸入6字元</div>
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-sm-2">
-                  <label for="price" class="control-label">價格</label>
-                </div>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="price" name="price" value="<?php echo $product['price']; ?>" required>
-                  <div class="help-block with-errors"></div>
-                </div>
-              </div>
-              <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
-                  <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
-                  <input type="hidden" name="productCategoryID" value="<?php echo $product['productCategoryID']; ?>">
-                  <input type="hidden" name="createdDate" value="<?php echo date('Y-m-d H-i-s'); ?>">
-                  <input type="hidden" name="picture" value="<?php echo $product['picture']; ?>">
                   <input type="hidden" name="MM_insert" value="INSERT">
+                  <input type="hidden" name="createdDate" value="<?php echo date('Y-m-d H-i-s'); ?>">
                   <button type="submit" class="btn btn-primary">送出</button>
                 </div>
               </div>
