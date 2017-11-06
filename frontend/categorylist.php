@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,7 +93,7 @@
                             <img src="../img2_04.jpg" width="100%" height="198" alt=""/>
                             <div class="panel-footer">
 
-                              <button class="btn btn-lg"> <a href="productlist.php?id=4">前往查看</a></button>
+                              <button class="btn btn-lg"> <a href="productcategory.php?id=4">前往查看</a></button>
                             </div>
                           </div>
                         </div>

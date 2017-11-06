@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../connection/database.php');
 $sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -108,7 +109,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                           </div>
                         </div>
                       <?php } ?>
-                        
+
 
                       </div>
                     </div>

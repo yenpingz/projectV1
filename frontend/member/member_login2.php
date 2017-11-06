@@ -1,8 +1,8 @@
 <?php
-	session_start();
-	unset($_SESSION['account']);
-	unset($_SESSION['memberID']);
- ?>
+session_start();
+require_once('../../connection/database.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,17 +32,40 @@
           <img src="../../assets/images/cal/product-img_03.jpg" alt="">
         </div>
     </div>
-    <div id="mebmer_title">
-      <h3>會員專區<h3>
-    </div>
     <div class="container" id="Membertable">
       <div class="row">
-          <div class="row" id="MemberForm">
-						<h2>登出</h2>
-						<p>
-							您已成功登出!
-						</p>
-          </div>
+        <div class="row" id="MemberForm">
+                <div class="col-md-12">
+               <form action="login.php" method="post" data-toggle="validator">
+                 <div class="form-group">
+                   <div class="col-sm-2">
+                     <label for="Account" class="control-label">帳號</label>
+                   </div>
+                   <div class="col-sm-10">
+                     <input type="email" class="form-control" id="Account" name="account"  style="margin-bottom:10px;" data-error="請輸入帳號" required>
+                     <div class="help-block with-errors"></div>
+                   </div>
+                 </div>
+                 <div class="form-group">
+                   <div class="col-sm-2">
+                     <label for="Password" class="control-label">密碼</label>
+                   </div>
+                   <div class="col-sm-10">
+                     <input type="password" class="form-control" id="Password" name="password"  pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,12}$" data-minlength="6" data-error="請至少輸入一個英文，長度至少6個英文數字為密碼，最多12個" required>
+                     <div class="help-block with-errors"></div>
+                   </div>
+                 </div>
+
+                 <div class="form-group">
+                   <div class="col-sm-12 text-center">
+                     <input type="hidden" name="MM_login" value="LOGIN">
+                     <button type="submit" class="btn btn-default" style="width:200px;">登入</button>
+                     <a href="forget_password.php" style="margin-left:30px;">忘記密碼?</a>
+                   </div>
+                 </div>
+               </form >
+
+            </div>
         </div>
       </div>
     </div>

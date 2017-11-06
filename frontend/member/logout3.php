@@ -1,9 +1,7 @@
 <?php
-require_once('../connection/database.php');
-$sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id2']);/* LIMIT ".$start_from.",". $limit*/
-$All_product = $sth->fetchAll(PDO::FETCH_ASSOC);
-$sth2 = $db->query("SELECT * FROM product WHERE productID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
-$product = $sth2->fetch(PDO::FETCH_ASSOC);
+session_start();
+unset($_SESSION['account']);
+unset($_SESSION['memberID']);
  ?>
 <!DOCTYPE html>
 <html >
@@ -12,14 +10,14 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-    <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../assets/js/validator.min.js"></script>
-	<script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/validator.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/jquery.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/style1.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/animate.css" rel="stylesheet" type="text/css">
 
   </head>
 <body>
@@ -50,38 +48,53 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
         <li><a href="#5">聯絡方式</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+
+        <?php if(!isset($_SESSION['account'])){ ?>
         <li><a href="frontend/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <?php }else{ ?>
+        <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <?php } ?>
       </ul>
     </div>
   </div>
 </nav>
 </div>
-<div class="container-fluid">
-  <img src="../uploads/products/<?php echo $product['picture']; ?>" width="100%" alt="">
+<div class="jumbotron text-center">
+  <h1 class="bounceInDown">會員專區 </h1>
+</div>
+
+<div class="container" style="height:100px;">
+  <div class="row">
+    <div class="row" id="MemberForm">
+
+   </div>
+  </div>
 </div>
 
   <div class="container">
-    <div class="row" id="test10">
-      <div class="col-sm-4">
-        <nav>
-          <h3>相關行程</h3>
-          <?php foreach ($All_product as $row ) { ?>
-          <a href="product.php?id=<?php echo $row['productID'];?>&id2=<?php echo $row['productCategoryID'];?>"><h3 id="namehover"><?php echo $row['name']; ?></h3></a>
-          <?php } ?>
-        </nav>
-      </div>
-      <div class="col-sm-8" >
-        <div class="product-content">
-          <h3><?php echo $product['name']; ?></h3>
-          <h3><?php echo 'NT$ '.$product['price']; ?></h3>
-          <button type="button" class="btn btn-info" style="margin-left:45%;">購買行程</button>
-          <p><?php echo $product['description']; ?></p>
-
-        </div>
-      </div>
+    <div class="row">
+      <div class="row" id="MemberForm">
+              <div class="col-md-12">
+                <div id="MemberForm">
+         					<h2 style="text-align:center;">登出</h2>
+         					<p>
+         						您已成功登出!
+         					</p>
+         				</div>
+             </div>
+           </div>
     </div>
   </div>
+
+  <div class="container" style="height:200px;">
+    <div class="row">
+      <div class="row" id="MemberForm">
+
+     </div>
+    </div>
+  </div>
+
 
 
 

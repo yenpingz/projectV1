@@ -1,7 +1,29 @@
 <?php
-	session_start();
-	unset($_SESSION['account']);
-	unset($_SESSION['memberID']);
+require_once("../../connection/database.php");
+
+$sql= "INSERT INTO member
+				(account,
+				password,
+				phone,
+				createdDate) VALUES (
+				:account,
+				:password,
+				:phone,
+				:createdDate)";
+	$sth = $db ->prepare($sql);
+	$sth ->bindParam(":account", $_POST['account'], PDO::PARAM_STR);
+	$sth ->bindParam("password", $_POST['password'], PDO::PARAM_STR);
+	$sth ->bindParam(":phone", $_POST['phone'], PDO::PARAM_STR);
+	$sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
+	$sth -> execute();
+
+			$to = "yan20170726@gmail.com";
+  		$header  = 'Content-type: text/html; charset=iso-8859-1'."\r\n";
+  		$header .= "From: yan20170726@gmail.com";
+  		$subject = "[Travelfun] 加入會員確認信";
+  		$body    = "您已經加入 [Cake House] 會員確認,<br><br>";
+  		$body   .= "連結在此<a href='http://120.124.165.116/c/no19/housecakeV1/apply_success.php'></a>";
+  		mail($to, $subject, $body, $header);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +31,7 @@
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>申請成功-會員專區</title>
     <!-- Bootstrap -->
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="../../assets/css/animate.css" rel="stylesheet">
@@ -25,24 +47,23 @@
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
-    <?php require_once("../template/nav2.php"); ?>
     <div class="container-fluid" id="member_banner">
         <div class="row">
           <img src="../../assets/images/cal/product-img_03.jpg" alt="">
         </div>
     </div>
     <div id="mebmer_title">
-      <h3>會員專區<h3>
+      <h3>加入會員<h3>
     </div>
     <div class="container" id="Membertable">
       <div class="row">
-          <div class="row" id="MemberForm">
-						<h2>登出</h2>
-						<p>
-							您已成功登出!
-						</p>
-          </div>
+        <div class="row" id="MemberForm">
+                <div class="col-md-12">
+                  <h2>申請會員成功!</h2>
+          					<p>
+          						您已成功加入會員，請至 <a href="member_login2.php">登入頁</a>，登入您的帳號，方可進行購物。
+          					</p>
+            </div>
         </div>
       </div>
     </div>

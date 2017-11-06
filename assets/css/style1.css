@@ -9,7 +9,7 @@ body{
     background-color: white;
     color: black;
     border: 2px solid #f44336;
-	margin-left:40%;
+		margin-left:40%;
 
 }
 
@@ -110,6 +110,21 @@ body{
 	padding-top:100px;
 	padding-bottom:100px;
 	}
+		#mebmer_title{
+			padding-top: 5px;
+			height: 80px;
+			background-color:#40befb;
+			color: #fff;
+			text-align:center;
+		}
+		#Membertable{
+		margin-top: 25px;
+		margin-bottom: 75px;
+		}
+		#member_banner img{
+			width: 100%;
+			height: 400px;
+		}
 
 @media screen and (max-width: 480px) {
     .logo {
@@ -129,6 +144,17 @@ body{
 		padding-bottom:0px;
 		}
 		#news .patom{margin-bottom:0px;}
+		#member_banner img{
+			width: 375px;
+			height: 200px;
+		}
+		#Membertable{
+			margin-top: 0px;
+			margin-bottom: 65px;
+			margin-right: 30px;
+			margin-left: 30px;
+			}
+
   }
 #news .patom{
 	margin-bottom:40px;
@@ -142,7 +168,158 @@ body{
 
 
 #footer{
-    width: 100%;
 	 background-color:#40befb; color:#fff;
-
    }
+
+/*my cart*/
+			.Category ul{
+				list-style-type: none;
+				list-style-image: none;
+				margin: 0;
+				padding: 0;
+			}
+			.Category li{
+			padding: 10px;
+			line-height: 30px;
+			display: block;
+			float: left;
+			}
+			.Category li a{
+			text-decoration: none;
+			padding: 5px 10px 5px 10px;
+			display: block;
+			border-radius: 5px;
+			background: #40befb;
+			color: #fff;
+			line-height: 30px;
+			text-align: center;
+			}
+			.Category li a:hover{
+			color: #000;
+			background: #fff;
+			border: 1px solid #40befb;
+			}
+	 #MemberForm {
+ 	float: left;
+ 	margin: 0 10px 0 0;
+ 	max-width: none;
+ 	padding: 0 0 61px 40px;
+ 	width: 100%;
+ }
+
+ #MemberForm h1 {
+ 	color: #CB3362;
+ 	float: none;
+ 	font-family: "微軟正黑體";
+ 	font-size: 24px;
+ 	font-weight: normal;
+ 	line-height: 24px;
+ 	margin: 0;
+ 	padding: 0 0 43px;
+ 	text-align: center;
+ 	text-transform: uppercase;
+ 	width: auto;
+ }
+ #MemberForm form {
+ 	margin:auto;
+ 	overflow: hidden;
+ 	padding: 0;
+ 	width: 80%;
+ }
+ #MemberForm form input[type="text"],input[type="password"] {
+ 	background: none;
+ 	border: 1px solid #B6ADB0;
+ 	color: #7A6666;
+ 	display: block;
+ 	font-family: lato-regular-webfont;
+ 	font-size: 14px;
+ 	font-weight: normal;
+ 	height: 38px;
+ 	line-height: 38px;
+ 	margin: 0 0 8px;
+ 	padding: 0 0 0 10px;
+ 	text-align: left;
+ 	width: 100%;
+ }
+ #MemberForm table{
+ 	width:100%;
+ }
+ #MemberForm table th{
+ 	text-align: left;
+ 	width:20%;
+ 	padding: 5px 5px 5px 50px;
+ }
+ #MemberForm table td{
+ 	padding: 10px;
+ }
+ #MemberForm form textarea {
+ 	background: none;
+ 	border: 1px solid #B6ADB0;
+ 	color: #7A6666;
+ 	display: block;
+ 	font-family: lato-regular-webfont;
+ 	font-size: 14px;
+ 	font-weight: normal;
+ 	height: 270px;
+ 	line-height: 24px;
+ 	margin: 0 0 9px;
+ 	overflow: auto;
+ 	padding: 7px 0 0 10px;
+ 	resize: none;
+ 	text-align: left;
+ 	width: 100%;
+ }
+ #MemberForm form input#submit {
+ 	background: none;
+ 	border: 2px solid #c5abb4;
+ 	color: #a5838e;
+ 	cursor: pointer;
+ 	display: block;
+ 	font-family: lato-bold-webfont;
+ 	font-size: 16px;
+ 	font-weight: normal;
+ 	height: 40px;
+ 	line-height: 36px;
+ 	margin: 0;
+ 	padding: 0;
+ 	text-align: center;
+ 	text-transform: uppercase;
+ 	width: 141px;
+ }
+
+/*Cart*/
+.cart{
+  width: 150px;
+  height: 40px;
+  background: #fff;
+  line-height:30px;
+  margin-top: 20px;
+  color:#40befb;
+  font-size: 20px;
+  border: 2px solid #40befb;
+  display: block;
+  margin-left:auto;
+}
+.cart:hover{
+  background: #40befb;
+  border:none;
+  color:#fff;
+}
+.test2{
+	padding-left: 35%;
+}
+
+#order-tables{
+	width:100%;
+	border:1px solid #eee;
+}
+#order-tables th{
+	padding: 10px 10px;
+	text-align: center;
+	background: #ebebeb;
+	border-bottom:1px solid #ebebee;
+}
+#order-tables td{
+	text-align: center;
+	padding: 5px;
+}

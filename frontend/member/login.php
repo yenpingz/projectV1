@@ -9,7 +9,7 @@ $member = $sth->fetch(PDO::FETCH_ASSOC);
 if($member != NULL){
   $_SESSION['account'] = $member['account'];
   $_SESSION['memberID'] = $member['memberID'];
-  header('Location: member_login.php?memberID='.$member['memberID']);
+  header('Location: my_cart.php?memberID='.$member['memberID']);
 }else{
   header('Location: login_error.php');
 }

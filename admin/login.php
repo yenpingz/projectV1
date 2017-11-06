@@ -88,7 +88,7 @@ $(document).ready(function() {
     <div class="footer">
 										<?php if(isset($_GET['msg']) && $_GET['msg'] != null){ ?>
 											<div class="alert alert-danger">
-											<strong><?php echo $_GET['msg']; ?></strong>
+											<strong style="color:red;"><?php echo $_GET['msg']; ?></strong>
 											</div>
 										<?php } ?>
 											<input type="hidden" name="MM_login" value="LOGIN">

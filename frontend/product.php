@@ -1,4 +1,6 @@
 <?php
+session_start();
+print_r($_SESSION['Cart']);
 require_once('../connection/database.php');
 $sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id2']);/* LIMIT ".$start_from.",". $limit*/
 $All_product = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -23,6 +25,15 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
 		<![endif]-->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.js"></script>
+    <?php
+          if(isset($_GET['Existed']) && $_GET['Existed'] != null){
+        if($_GET['Existed'] == 'true'){
+          echo "<script>alert('此商品已存在購物車。')</script>";
+        }else{
+          echo "<script>alert('成功加入購物車!')</script>";
+        }
+      }
+   ?>
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -30,7 +41,7 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
 
                 <div class="container-fluid" style="padding-top:55px;">
                   <div class="row">
-                      <img src="banner2_01.jpg" width="100%" alt="">
+                      <img src="../assets/images/0.jpeg" width="100%" alt="">
                   </div>
                 </div>
 
@@ -67,10 +78,31 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
                             <div class="panel-body">
                               <?php echo $product['description']; ?>
                             </div>
-                            <div class="panel-footer">
-                              <h3>NT$<?php echo $product['price']; ?></h3>
-                              <h4>5天4夜</h4>
-                              <button class="btn btn-lg">購買行程</button>
+                            <div class="panel-footer test2">
+                              <form class="" action="addCart.php" method="post">
+                  							<table id="ProductTable">
+                  								<tr>
+                  									<td width="20%"><strong>價格：</strong></td>
+                  									<td class="price">
+                  										<strong>NT$<?php echo $product['price']; ?></strong>
+                  									</td>
+                  								</tr>
+                  								<tr>
+                                    <input type="hidden" name="name" value="<?php echo $product['name']; ?>">
+                                    <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
+                                    <input type="hidden" name="picture" value="<?php echo $product['picture']; ?>">
+                                    <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
+                                    <input type="hidden" name="productCategoryID" value="<?php echo $product['productCategoryID']; ?>">
+                                    <?php
+                                    if(!isset($_SESSION['account'])&&!isset($_SESSION['memberID'])){
+                                      echo "<td colspan='2'><a href='member/member_login2.php' class='cart'>登入會員</a></td>";
+                                    } else{?>
+                  									<td colspan="2"><input type="submit" class="cart" value="加入購物車"></td>
+                                  <?php  }?>
+                  								</tr>
+                  							</table>
+                  						</form>
+
                             </div>
                           </div>
                         </div>

@@ -1,5 +1,6 @@
 <?php
-require_once("../../connection/database1.php");
+require_once("../template/login_check.php");
+require_once("../../connection/database.php");
 $limit = 10;
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
 $start_from = ($page-1) * $limit;
@@ -29,7 +30,7 @@ $totalRows = count($all_order);
     <div class="navbar navbar-default navbar-static-top" id="nav">
       <div class="container">
         <div class="navbar-header">
-        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#navbar-ex-collapse">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#navbar-ex-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -40,23 +41,23 @@ $totalRows = count($all_order);
         </div>
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
           <ul class="nav navbar-nav navbar-left">
-            <li ><a href="#">頁面管理</a></li>
-            <li ><a href="#">最新消息管理</a></li>
+            <li ><a href="../page/list.php">頁面管理</a></li>
+            <li ><a href="../news/list.php">最新優惠管理</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">訂單管理<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#1">日本</a></li>
-                <li><a href="#2">大陸</a></li>
-                <li><a href="#3">東南亞</a></li>
-                <li><a href="#4">歐洲</a></li>
+                <li><a href="list.php?status=0">未付款</a></li>
+                <li><a href="list.php?status=1">已付款</a></li>
+                <li><a href="list.php?status=2">行程進行中</a></li>
+                <li><a href="list.php?status=3">交易完成</a></li>
               </ul>
             </li>
-            <li><a href="#4">產品管理</a></li>
-            <li><a href="#5">會員管理</a></li>
+            <li><a href="../productcategory_management/list.php">產品管理</a></li>
+            <li><a href="../member_management/list.php">會員管理</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="frontend/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li></li>
+            <li><a href="../logout.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           </ul>
         </div>
       </div>
@@ -67,7 +68,7 @@ $totalRows = count($all_order);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>地區分類管理-列表</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>訂單管理-未付款</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
@@ -76,7 +77,7 @@ $totalRows = count($all_order);
                 <a href="list.php">主控台</a>
               </li>
               <li>
-                <a href="list.php" class="active">地區分類</a>
+                <a href="list.php" class="active">訂單管理</a>
               </li>
             </ul>
           </div>
@@ -99,11 +100,12 @@ $totalRows = count($all_order);
                   <th>地址</th>
                   <th>金額</th>
                   <th>編輯</th>
-                  <th>刪除</th>
+                  <th>交易狀態</th>
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($all_category as $row) {?>
+            <?php if($totalRows>0){ ?>
+            <?php foreach ($all_order as $row) {?>
               <tr>
                     <td><?php echo $row["orderDate"]; ?></td>
                     <td><?php echo $row["orderNO"]; ?></td>
@@ -112,9 +114,34 @@ $totalRows = count($all_order);
                     <td><?php echo $row["address"]; ?></td>
                     <td><?php echo $row["totalPrice"]; ?></td>
                     <td><a href="edit.php?ID=<?php echo $row["customer_orderID"];?>">編輯</a></td>
-                    <td><a href="delete.php?newsID=<?php echo $row["customer_orderID"];?>" onclick="if(!confirm('是否刪除此筆資料？')){return false;};">刪除</a></td>
+                    <td>
+                      <?php $num=$row["status"];
+                            switch ($num) {
+                                case '0':
+                                  echo "未付款";
+                                  break;
+                                case '1':
+                                  echo "未付款";
+                                  break;
+                                case '2':
+                                  echo "未付款";
+                                  break;
+                                case '3':
+                                  echo "未付款";
+                                  break;
+                                default:
+                                  echo "錯誤";
+                                  break;
+                              }
+                      ?>
+                    </td>
                   </tr>
-            <?php } ?>
+              <?php }}else { ?>
+                <tr>
+                      <td colspan="8" style="padding-left:40%;"><strong>尚未有訂單資料。</strong></td>
+                </tr>
+
+              <?php } ?>
             </tbody>
           </table>
         </div>

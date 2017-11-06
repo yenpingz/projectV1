@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once("../../connection/database.php");
 
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
@@ -69,7 +70,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
           <ul class="nav navbar-nav navbar-left">
             <li ><a href="#">頁面管理</a></li>
-            <li ><a href="#">最新消息管理</a></li>
+            <li ><a href="#">最新優惠管理</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">訂單管理<span class="caret"></span></a>
               <ul class="dropdown-menu">

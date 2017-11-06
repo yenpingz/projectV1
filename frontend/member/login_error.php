@@ -1,8 +1,3 @@
-<?php
-	session_start();
-	unset($_SESSION['account']);
-	unset($_SESSION['memberID']);
- ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,9 +33,9 @@
     <div class="container" id="Membertable">
       <div class="row">
           <div class="row" id="MemberForm">
-						<h2>登出</h2>
+						<h2>登入錯誤</h2>
 						<p>
-							您已成功登出!
+							請確認您的帳號密碼是否有誤。
 						</p>
           </div>
         </div>

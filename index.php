@@ -41,7 +41,15 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right" style="margin-left:10px;">
               <!--<li><a href="frontend/member/logout.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-              <li><a href="frontend/member/member_login.php"><span class="glyphicon glyphicon-log-in"></span>會員登入</a></li>
+              <?php if(!isset($_SESSION['account'])){ ?>
+                <li><a href="frontend/member/member_apply.php"><span class="glyphicon glyphicon-log-in"></span>加入會員</a></li>
+                <li><a href="frontend/member/member_login2.php"><span class="glyphicon glyphicon-log-in"></span>會員登入</a></li>
+              <?php }else{ ?>
+                <li><a href="frontend/member/member_apply.php"><span class="glyphicon glyphicon-log-in"></span>會員專區</a></li>
+                <a href="frontend/member/member_edit.php"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
+                <li><a href="frontend/member/member_login2.php"><span class="glyphicon glyphicon-log-in"></span>登出</a></li>
+              <?php } ?>
+
             </ul>
           <ul class="nav navbar-nav navbar-right">
           <li><a href="#news">最新優惠</a></li>
