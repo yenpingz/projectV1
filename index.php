@@ -11,7 +11,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>TRAVELFUNS</title>
     <!-- Bootstrap -->
 	<link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/animate.css" rel="stylesheet">
@@ -79,24 +79,24 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                           <div class="item active">
                             <img src="assets/images/cal/product-img_03.jpg" alt="Los Angeles" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>Los Angeles</h3>
-                              <p>LA is always so much fun!</p>
+                              <h3>歐洲湖畔</h3>
+                              <p>度假小屋，湖畔的寧靜!</p>
                             </div>
                           </div>
 
                           <div class="item">
                             <img src="assets/images/cal/product-img_13.jpg" alt="Chicago" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>Chicago</h3>
-                              <p>Thank you, Chicago!</p>
+                              <h3>水上江南</h3>
+                              <p>小橋，流水，人家!</p>
                             </div>
                           </div>
 
                           <div class="item">
                             <img src="assets/images/cal/product-img_19.jpg" alt="New York" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>New York</h3>
-                              <p>We love the Big Apple!</p>
+                              <h3>日本九州</h3>
+                              <p>深夜極景，閒情逸致!</p>
                             </div>
                           </div>
 
@@ -139,7 +139,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div class="panel-footer">
                               <h3>NT$<?php echo $row['price']; ?></h3>
-                              <button class="btn btn-lg"><a href="frontend/product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>">前往查看</a></button>
+                              <button class="btn btn-lg"><a href="frontend/product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>&id3=0">前往查看</a></button>
                             </div>
                           </div>
                         </div>
@@ -170,11 +170,12 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
-
-
+                    <div class="container-fluid" id="contactitle">
+                      <div class="text-center patom">
+                        <h2>聯絡專區</h2>
+                      </div>
+                    </div>
 					<div id="contact" class="container-fluid">
-                      <h2 class="text-center">CONTACT</h2>
                       <div class="row">
                         <div class="col-sm-5">
                           <p>Contact us and we'll get back to you within 24 hours.</p>
@@ -205,7 +206,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                         <div class="col-sm-2"></div>
                              <div class="col-sm-6">
                                 <h1>TRAVELFUNS</h1>
-                                <p contenteditable="true">版權所有 © 2017 &nbsp; St WHISKYBAR All Right Reserved.</p>
+                                <p contenteditable="true">版權所有 © 2017 &nbsp; St XXXXXX All Right Reserved.</p>
                               </div>
                         </div>
                       </div>

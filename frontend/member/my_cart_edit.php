@@ -1,8 +1,7 @@
 <?php
 require_once("../template/login_check.php");
-require_once("../../connection/database.php");
-$sth = $db->query("SELECT * FROM customer_order WHERE memberID=".$_SESSION["memberID"]);
-$customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
+	session_start();
+	$id=$_GET['CartID'];
 
  ?>
 <!DOCTYPE html>

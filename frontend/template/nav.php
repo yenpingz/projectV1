@@ -6,12 +6,19 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a href="#myPage"><img src="../TRAVELFUN2-logo.png" width="80" height="50" alt=""/></a>
+      <a href="../index.php#myPage"><img src="../TRAVELFUN2-logo.png" width="80" height="50" alt=""/></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right" style="margin-left:10px;">
           <!--<li><a href="frontend/member/logout.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-          <li><a href="member/member_login.php"><span class="glyphicon glyphicon-log-in"></span>會員登入</a></li>
+          <?php if(!isset($_SESSION['account'])){ ?>
+            <li><a href="member/member_apply.php"><span class="glyphicon glyphicon-log-in"></span>加入會員</a></li>
+            <li><a href="member/member_login2.php"><span class="glyphicon glyphicon-log-in"></span>會員登入</a></li>
+          <?php }else{ ?>
+            <li><a href="member/my_cart.php"><span class="glyphicon glyphicon-log-in"></span>會員專區</a></li>
+            <li><a href="member/logout.php"><span class="glyphicon glyphicon-log-out"></span>會員登出</a></li>
+            <li><a href="member/member_edit.php"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></li>
+          <?php } ?>
         </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="../index.php#news">最新優惠</a></li>

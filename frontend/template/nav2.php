@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a href="#myPage"><img src="../../TRAVELFUN2-logo.png" width="80" height="50" alt=""/></a>
+      <a href="../../index.php#myPage"><img src="../../TRAVELFUN2-logo.png" width="80" height="50" alt=""/></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right" style="margin-left:10px;">
@@ -22,7 +22,7 @@
 
         </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="../index.php#news">最新優惠</a></li>
+      <li><a href="../../index.php#news">最新優惠</a></li>
       <li><a href="../categorylist.php#services">國外旅遊</a></li>
       <li><a href="../productcategory.php?id=3#portfolio">國內旅遊</a></li>
       <li><a href="#pricing">自由行</a></li>

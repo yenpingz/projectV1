@@ -10,7 +10,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>日本旅遊-TRAVELFUN</title>
     <!-- Bootstrap -->
     <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/css/style1.css">
@@ -41,25 +41,25 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                         <div class="carousel-inner">
 
                           <div class="item active">
-                            <img src="banner2_01.jpg" alt="Los Angeles" style="width:100%;">
+                            <img src="../uploads/products/<?php echo $product[0]['picture'];?>" alt="Los Angeles" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>Los Angeles</h3>
+                              <h3><?php echo $product[0]['name']; ?></h3>
                               <p>LA is always so much fun!</p>
                             </div>
                           </div>
 
                           <div class="item">
-                            <img src="banner2_01.jpg" alt="Chicago" style="width:100%;">
+                            <img src="../uploads/products/<?php echo $product[1]['picture'];?>" alt="Chicago" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>Chicago</h3>
+                              <h3><?php echo $product[1]['name']; ?></h3>
                               <p>Thank you, Chicago!</p>
                             </div>
                           </div>
 
                           <div class="item">
-                            <img src="banner2_01.jpg" alt="New York" style="width:100%;">
+                            <img src="../uploads/products/<?php echo $product[2]['picture'];?>" alt="New York" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>New York</h3>
+                              <h3><?php echo $product[2]['name']; ?></h3>
                               <p>We love the Big Apple!</p>
                             </div>
                           </div>
@@ -87,8 +87,8 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                     <div id="services" class="container-fluid">
                       <div class="text-center">
-                        <h2><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==6){echo "中國";} if($_GET['id']==3){echo "台灣";}  ?>地區</h2>
-                        <h4><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==6){echo "中國";} if($_GET['id']==3){echo "國內";} ?>優質旅行</h4>
+                        <h2><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==5){echo "中國";} if($_GET['id']==3){echo "台灣";}  ?>地區</h2>
+                        <h4><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==5){echo "中國";} if($_GET['id']==3){echo "國內";} ?>優質旅行</h4>
                       </div>
                       <div class="row slideanim">
                         <?php foreach ($product as $row) {  ?>
@@ -97,13 +97,13 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                             <div class="panel-heading">
                               <h1><?php echo $row['name']; ?></h1>
                             </div>
-                            <img src="../uploads/products/<?php echo $row['picture']; ?>" width="100%" height="198" alt=""/>
+                            <img src="../uploads/products/<?php echo $row['picture']; ?>" width="100%"  alt=""/>
                             <div class="panel-body">
                               <?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?>
                             </div>
                             <div class="panel-footer">
                               <h3>NT$<?php echo $row['price']; ?></h3>
-                              <h4>dqwdqwdqwdwq</h4>
+
                               <button class="btn btn-lg"><a href="product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>">查看內容</a></button>
                             </div>
                           </div>

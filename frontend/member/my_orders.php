@@ -36,7 +36,7 @@ $customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
         </div>
     </div>
     <div id="mebmer_title">
-      <h3>加入會員<h3>
+      <h3>我的訂單<h3>
     </div>
     <div class="container" id="Membertable">
       <ul class="Category">
@@ -64,8 +64,8 @@ $customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
                               <td data-title="訂購日期"><?php echo $order['orderDate']; ?></td>
                               <td data-title="訂單編號"><?php echo $order['orderNO']; ?></td>
                               <td data-title="總金額">$NT <?php echo $order['totalPrice']; ?></td>
-                              <td data-title="運費">$NT <?php echo $order['shipping']; ?></td>
-                              <td data-title="訂單狀態"><?php switch ($order['shipping']) {
+                              <td data-title="運費">$NT <?php echo $order['processingFee']; ?></td>
+                              <td data-title="訂單狀態"><?php switch ($order['status']) {
                               	case 0:
                               		echo "未付款";
                               		break;

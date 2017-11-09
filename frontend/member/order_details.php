@@ -1,59 +1,11 @@
 <?php
-require_once("../template/login_check.php");
-require_once("../../connection/database1.php");
-$sql= "INSERT INTO customer_order
-				(memberID,orderNO,orderDate,totalPrice,shipping,name,phone,mobile,email,address,createdDate) VALUES (
-				:memberID,
-				:orderNO,
-				:orderDate,
-				:totalPrice,
-				:shipping,
-				:name,
-				:phone,
-				:mobile,
-				:email,
-				:address,
-				:createdDate)";
-	$sth = $db ->prepare($sql);
-	$sth ->bindParam(":memberID", $_POST['memberID'], PDO::PARAM_INT);
-	$sth ->bindParam("orderNO", $_POST['orderNO'], PDO::PARAM_STR);
-	$sth ->bindParam(":orderDate", $_POST['orderDate'], PDO::PARAM_STR);
-	$sth ->bindParam(":totalPrice", $_POST['totalPrice'], PDO::PARAM_INT);
-	$sth ->bindParam(":shipping", $_POST['shipping'], PDO::PARAM_INT);
-	$sth ->bindParam(":name", $_POST['name'], PDO::PARAM_STR);
-	$sth ->bindParam(":phone", $_POST['phone'], PDO::PARAM_STR);
-	$sth ->bindParam(":mobile", $_POST['mobile'], PDO::PARAM_STR);
-	$sth ->bindParam(":email", $_POST['email'], PDO::PARAM_STR);
-	$sth ->bindParam(":address", $_POST['address'], PDO::PARAM_STR);
-	$sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
-	$sth -> execute();
-	$sth2 = $db->query("SELECT * FROM customer_order WHERE memberID=".$_POST["memberID"]." ORDER BY createdDate DESC");
-	$last_order = $sth2->fetch(PDO::FETCH_ASSOC);
+session_start();
+require_once("../../connection/database.php");
+$sth = $db->query("SELECT * FROM customer_order WHERE customer_orderID=".$_GET["no"]);
+$customer_order= $sth->fetch(PDO::FETCH_ASSOC);
 
-for ($i=0; $i < count($_SESSION['Cart']); $i++) {
-	$sql= "INSERT INTO order_details
-					(customer_orderID,productID,picture,name,price,Quantity,createdDate) VALUES (
-					:customer_orderID,
-					:productID,
-					:picture,
-					:name,
-					:price,
-					:Quantity,
-					:createdDate)";
-		$sth = $db ->prepare($sql);
-		$sth ->bindParam(":customer_orderID", $last_order['customer_orderID'], PDO::PARAM_INT);
-		$sth ->bindParam("productID", $_SESSION['Cart'][$i]['productID'], PDO::PARAM_INT);
-		$sth ->bindParam(":picture", $_SESSION['Cart'][$i]['picture'], PDO::PARAM_STR);
-		$sth ->bindParam(":name",  $_SESSION['Cart'][$i]['name'], PDO::PARAM_STR);
-		$sth ->bindParam(":price",  $_SESSION['Cart'][$i]['price'], PDO::PARAM_INT);
-		$sth ->bindParam(":Quantity",  $_SESSION['Cart'][$i]['Quantity'], PDO::PARAM_INT);
-		$sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
-		$sth -> execute();
-}
-
-//unset($SESSION['Cart']);
-//寄信會員(管理者)
-
+$sth2 = $db->query("SELECT * FROM order_details WHERE customer_orderID=".$_GET["no"]);
+$order_details= $sth2->fetchAll(PDO::FETCH_ASSOC);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,14 +42,15 @@ for ($i=0; $i < count($_SESSION['Cart']); $i++) {
     <div class="container" id="Membertable">
       <div class="row">
           <div class="row" id="MemberForm">
+						<h3>明細</h3>
+						<a href='my_cart.php'>返回上一頁</a>
 						<table id="order-tables">
             	<thead>
             		<tr>
             			<th width="15%">商品圖片</th>
             			<th width="30%">商品名稱</th>
-									<th width="10%" class="price">單價</th>
-            			<th width="10%" class="quantity">數量</th>
-            			<th width="10%" class="subtotal">小計</th>
+									<th width="15%" class="price">單價</th>
+            			<th width="15%" class="subtotal">小計</th>
             		</tr>
             	</thead>
               <tbody>
@@ -109,9 +62,8 @@ for ($i=0; $i < count($_SESSION['Cart']); $i++) {
 									<td class="cart_description" data-title="商品名稱">
 											<h4><a href="product_content.php?productID=<?php echo $row['productID']; ?>"><?php echo $row['name'] ?></a></h4>
 									</td>
-                  <td data-title="單價"><?php echo $row['price']; ?></td>
-                  <td data-title="數量"><?php echo $row['quantity']; ?></td>
-									<td data-title="小計">$NT <?php echo $row['price']*$row['quantity']; ?></td>
+                  <td data-title="單價">NT$<?php echo $row['price']; ?></td>
+									<td data-title="小計">NT$<?php echo $row['price']; ?></td>
                 </tr>
 							<?php } ?>
 

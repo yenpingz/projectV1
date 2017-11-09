@@ -1,11 +1,11 @@
 <?php
 session_start();
-print_r($_SESSION['Cart']);
 require_once('../connection/database.php');
 $sth = $db->query("SELECT * FROM product WHERE productCategoryID=".$_GET['id2']);/* LIMIT ".$start_from.",". $limit*/
 $All_product = $sth->fetchAll(PDO::FETCH_ASSOC);
 $sth2 = $db->query("SELECT * FROM product WHERE productID=".$_GET['id']);/* LIMIT ".$start_from.",". $limit*/
 $product = $sth2->fetch(PDO::FETCH_ASSOC);
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title></title>
     <!-- Bootstrap -->
     <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/css/style1.css">
@@ -39,18 +39,10 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
 
     <?php require_once("template/nav.php"); ?>
 
-                <div class="container-fluid" style="padding-top:55px;">
-                  <div class="row">
-                      <img src="../assets/images/0.jpeg" width="100%" alt="">
-                  </div>
-                </div>
-
-
 
                     <div id="<?php if($_GET['id']==3) echo '#portfolio'; else echo '#services'; ?>" class="container-fluid">
                       <div class="text-center">
-                        <h2>標題</h2>
-                        <h4>標題二</h4>
+                        <h3>--------</h3>
                       </div>
                       <div class="row slideanim">
                         <div class="col-sm-2 col-xs-12">
@@ -71,21 +63,19 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
                           </div>
                         </div>
                         <div class="col-sm-10 col-xs-12">
-                          <div class="panel panel-default text-center">
-                            <div class="panel-heading">
+                          <div class="panel panel-default">
+                            <div class="panel-heading text-center">
                               <h1><?php echo $product['name']; ?></h1>
                             </div>
                             <div class="panel-body">
+                              <img src="../uploads/products/<?php echo $product['picture']; ?>" width="100%" alt="">
                               <?php echo $product['description']; ?>
                             </div>
-                            <div class="panel-footer test2">
+                            <div class="panel-footer">
                               <form class="" action="addCart.php" method="post">
                   							<table id="ProductTable">
                   								<tr>
-                  									<td width="20%"><strong>價格：</strong></td>
-                  									<td class="price">
-                  										<strong>NT$<?php echo $product['price']; ?></strong>
-                  									</td>
+                  									<td><strong>價格：NT$<?php echo $product['price']; ?></strong></td>
                   								</tr>
                   								<tr>
                                     <input type="hidden" name="name" value="<?php echo $product['name']; ?>">
@@ -95,9 +85,9 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
                                     <input type="hidden" name="productCategoryID" value="<?php echo $product['productCategoryID']; ?>">
                                     <?php
                                     if(!isset($_SESSION['account'])&&!isset($_SESSION['memberID'])){
-                                      echo "<td colspan='2'><a href='member/member_login2.php' class='cart'>登入會員</a></td>";
+                                      echo "<td><a href='member/member_login2.php' class='cart' style='text-align:center;'>登入會員</a></td>";
                                     } else{?>
-                  									<td colspan="2"><input type="submit" class="cart" value="加入購物車"></td>
+                  									<td ><input type="submit" class="cart" value="加入購物車"></td>
                                   <?php  }?>
                   								</tr>
                   							</table>

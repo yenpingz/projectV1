@@ -36,26 +36,25 @@
                         <div class="carousel-inner">
 
                           <div class="item active">
-                            <img src="../assets/images/bannertext_02.jpg" alt="Los Angeles" style="width:100%;">
+                            <a href="productcategory.php?id=4">
+                            <img src="../assets/images/banner31.jpg" alt="Los Angeles" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>Los Angeles</h3>
-                              <p>LA is always so much fun!</p>
+                              <p>日本旅遊</p>
+                            </div>
+                            </a>
+                          </div>
+
+                          <div class="item">
+                            <img src="../assets/images/banner32.jpg" alt="Chicago" style="width:100%;">
+                            <div class="carousel-caption">
+                              <p>歐洲旅遊</p>
                             </div>
                           </div>
 
                           <div class="item">
-                            <img src="../assets/images/bannertext_02.jpg" alt="Chicago" style="width:100%;">
+                            <img src="../assets/images/banner33.jpg" alt="New York" style="width:100%;">
                             <div class="carousel-caption">
-                              <h3>Chicago</h3>
-                              <p>Thank you, Chicago!</p>
-                            </div>
-                          </div>
-
-                          <div class="item">
-                            <img src="../assets/images/bannertext_02.jpg" alt="New York" style="width:100%;">
-                            <div class="carousel-caption">
-                              <h3>New York</h3>
-                              <p>We love the Big Apple!</p>
+                              <p>中國旅遊</p>
                             </div>
                           </div>
 
@@ -81,7 +80,7 @@
 
 
                     <div id="services" class="container-fluid">
-                      <div class="text-center">
+                      <div class="text-center" style="margin-bottom:50px;">
                         <h2>國外旅遊</h2>
                       </div>
                       <div class="row slideanim">
@@ -90,10 +89,9 @@
                             <div class="panel-heading">
                               <h1>日本行程</h1>
                             </div>
-                            <img src="../img2_04.jpg" width="100%" height="198" alt=""/>
+                            <img src="../assets/images/banner31.jpg" width="100%"  alt=""/>
                             <div class="panel-footer">
-
-                              <button class="btn btn-lg"> <a href="productcategory.php?id=4">前往查看</a></button>
+                                <a href="productcategory.php?id=4" class="btn btn-lg">前往查看</a>
                             </div>
                           </div>
                         </div>
@@ -102,10 +100,9 @@
                             <div class="panel-heading">
                               <h1>歐洲行程</h1>
                             </div>
+                            <img src="../assets/images/banner32.jpg" width="100%"  alt=""/>
                             <div class="panel-footer">
-                              <h3>$29</h3>
-                              <h4>per month</h4>
-                              <button class="btn btn-lg">Sign Up</button>
+                              <button class="btn btn-lg">前往查看</button>
                             </div>
                           </div>
                         </div>
@@ -114,17 +111,9 @@
                             <div class="panel-heading">
                               <h1>中國行程</h1>
                             </div>
-                            <div class="panel-body">
-                              <p><strong>100</strong> Lorem</p>
-                              <p><strong>50</strong> Ipsum</p>
-                              <p><strong>25</strong> Dolor</p>
-                              <p><strong>10</strong> Sit</p>
-                              <p><strong>Endless</strong> Amet</p>
-                            </div>
+                            <img src="../assets/images/banner33.jpg" width="100%"  alt=""/>
                             <div class="panel-footer">
-                              <h3>$49</h3>
-                              <h4>per month</h4>
-                              <button class="btn btn-lg"> <a href="productlist.php?id=6">前往查看</a></button>
+                              <a href="productcategory.php?id=5" class="btn btn-lg">前往查看</a>
                             </div>
                           </div>
                         </div>

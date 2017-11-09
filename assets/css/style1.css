@@ -57,15 +57,24 @@ body{
       border-color: transparent;
       color: #fff !important;
   }
+.carousel-caption{
+	font-size: 60px;
+	bottom: 300px;
+}
+.carousel-caption p{
+	text-shadow:5px 0px 40px rgba(0,0,0, .2);
+}
 
 /*panel*/
 .panel {
-      border: 1px solid #40befb;
+      /*border: 1px solid #00248F;*/
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
   .panel:hover {
-      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+			/*border:none;*/
+      /*box-shadow: 5px 0px 40px rgba(255,255,255, 1);*/
+			box-shadow: 5px 0px 40px rgba(0,0,0, 0.5);
   }
   .panel-footer .btn:hover {
       border: 1px solid #40befb;
@@ -73,7 +82,7 @@ body{
       color: #40befb;
   }
   .panel-heading {
-      color: #fff !important;
+      color: #000 !important;
       background-color: #40befb !important;
       padding: 25px;
       border-bottom: 1px solid transparent;
@@ -97,18 +106,28 @@ body{
       background-color: #40befb;
       color: #fff;
   }
+	  .panel-footer .btn a{
+			text-decoration: none;
+		}
 
   #news{
 	padding-top:50px;
-	padding-bottom:220px;
+	padding-bottom:100px;
 	animation-name: fadeIn;
 	animation-duration: 1s;
 	}
+	#contactitle{
+		padding-top: 50px;
+		margin-bottom: 50px;
+		color: rgb(41, 52, 147);
+		border-top: 5px double rgb(41, 52, 147);
+	}
 
 	#contact{
-	background-color:#A4C9FD;
-	padding-top:100px;
-	padding-bottom:100px;
+		color: #fff;
+	background-color:rgb(41, 52, 147);
+	padding-top:150px;
+	padding-bottom:150px;
 	}
 		#mebmer_title{
 			padding-top: 5px;
@@ -127,6 +146,11 @@ body{
 		}
 
 @media screen and (max-width: 480px) {
+	.carousel-caption{
+		font-size: 12px;
+		bottom: 20px;
+	}
+
     .logo {
 		padding-left:20px;
     }
@@ -134,7 +158,11 @@ body{
 		padding-top:0px;
 		padding-bottom:0px;
 	}
-
+	#contactitle{
+		margin-top:50px;
+		padding-top: 0px;
+		margin-bottom: 0px;
+	}
 	#contact{
 		padding-top:0px;
 		padding-bottom:0px;
@@ -160,12 +188,9 @@ body{
 	margin-bottom:40px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background-color: rgb(245, 59, 59);
-	color: #fff;
-	border-radius: 15px;
+	color: rgb(41, 52, 147);
+	border-top: 5px solid rgb(41, 52, 147);
 }
-
-
 
 #footer{
 	 background-color:#40befb; color:#fff;
@@ -227,7 +252,6 @@ body{
  	width: 80%;
  }
  #MemberForm form input[type="text"],input[type="password"] {
- 	background: none;
  	border: 1px solid #B6ADB0;
  	color: #7A6666;
  	display: block;
@@ -305,9 +329,6 @@ body{
   border:none;
   color:#fff;
 }
-.test2{
-	padding-left: 35%;
-}
 
 #order-tables{
 	width:100%;
@@ -322,4 +343,7 @@ body{
 #order-tables td{
 	text-align: center;
 	padding: 5px;
+}
+.text-center{
+	text-align: center;
 }
