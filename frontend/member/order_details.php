@@ -13,9 +13,11 @@ $order_details= $sth2->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>行程明細-會員專區</title>
     <!-- Bootstrap -->
+
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="../../assets/css/animate.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../assets/css/style1.css">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -37,13 +39,16 @@ $order_details= $sth2->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
     <div id="mebmer_title">
-      <h3>會員專區<h3>
+      <h3>會員專區-行程明細<h3>
     </div>
     <div class="container" id="Membertable">
       <div class="row">
           <div class="row" id="MemberForm">
-						<h3>明細</h3>
-						<a href='my_cart.php'>返回上一頁</a>
+
+            <ul class="Category">
+      					<li><a href='my_cart.php' class="btn btn-lg">返回上一頁</a></li>
+      			</ul>
+
 						<table id="order-tables">
             	<thead>
             		<tr>

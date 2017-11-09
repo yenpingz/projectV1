@@ -10,9 +10,10 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>日本旅遊-TRAVELFUN</title>
+    <title><?php if($_GET['id']==4){echo "日本";} if($_GET['id']==5){echo "中國";} if($_GET['id']==3){echo "台灣";}  ?>旅遊-TRAVELFUN</title>
     <!-- Bootstrap -->
     <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/css/style1.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +46,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                             <img src="../uploads/products/<?php echo $product[0]['picture'];?>" alt="Los Angeles" style="width:100%;">
                             <div class="carousel-caption">
                               <h3><?php echo $product[0]['name']; ?></h3>
-                              <p>Zhangjiajie 5 days !</p>
+                              <p>NT$<?php echo $product[0]['price']; ?>起!</p>
                             </div>
                             </a>
                           </div>
@@ -55,7 +56,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                             <img src="../uploads/products/<?php echo $product[1]['picture'];?>" alt="Chicago" style="width:100%;">
                             <div class="carousel-caption">
                               <h3><?php echo $product[1]['name']; ?></h3>
-                              <p>Sichuan 8 days !</p>
+                              <p>NT$<?php echo $product[1]['price']; ?>起</p>
                             </div>
                           </a>
                           </div>
@@ -65,7 +66,7 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                             <img src="../uploads/products/<?php echo $product[2]['picture'];?>" alt="New York" style="width:100%;">
                             <div class="carousel-caption">
                               <h3><?php echo $product[2]['name']; ?></h3>
-                              <p>Shanxi 8 days !</p>
+                              <p>NT$<?php echo $product[2]['price']; ?>起</p>
                             </div>
                             </a>
                           </div>

@@ -34,6 +34,7 @@ $sql= "INSERT INTO member
     <title>申請成功-會員專區</title>
     <!-- Bootstrap -->
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="../../assets/css/animate.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../assets/css/style1.css">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -47,6 +48,7 @@ $sql= "INSERT INTO member
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+		<?php require_once('../template/nav2.php'); ?>
     <div class="container-fluid" id="member_banner">
         <div class="row">
           <img src="../../assets/images/cal/product-img_03.jpg" alt="">

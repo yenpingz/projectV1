@@ -1,5 +1,5 @@
 <?php
-  require_once("../template/login_check.php");
+    require_once("../template/login_check.php");
    require_once("../../connection/database.php");
 	 if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
       $sql= "UPDATE member SET
@@ -20,7 +20,7 @@
       $sth -> execute();
       header('Location: member_edit.php?memberID='.$_POST['memberID']);
     }
-		$sth = $db->query("SELECT * FROM member WHERE memberID=".$_GET['memberID']);
+		$sth = $db->query("SELECT * FROM member WHERE memberID=".$_SESSION['memberID']);
     $member = $sth->fetch(PDO::FETCH_ASSOC);
 
  ?>
@@ -30,7 +30,7 @@
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>修改資料-會員專區</title>
     <!-- Bootstrap -->
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="../../assets/css/animate.css" rel="stylesheet">
@@ -61,7 +61,7 @@
         </div>
     </div>
     <div id="mebmer_title">
-      <h3>加入會員<h3>
+      <h3>會員專區<h3>
     </div>
     <div class="container" id="Membertable">
       <ul class="Category">

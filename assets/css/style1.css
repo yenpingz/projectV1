@@ -153,6 +153,9 @@ body{
 		font-size: 12px;
 		bottom: 20px;
 	}
+	.carousel-caption h3{
+		font-size: 12px;
+	}
 
     .logo {
 		padding-left:20px;
@@ -299,7 +302,7 @@ body{
  #MemberForm form input#submit {
  	background: none;
  	border: 2px solid #c5abb4;
- 	color: #a5838e;
+ 	color: #c5abb4;
  	cursor: pointer;
  	display: block;
  	font-family: lato-bold-webfont;

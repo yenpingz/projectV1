@@ -11,9 +11,10 @@ $customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>我的訂單-會員專區</title>
     <!-- Bootstrap -->
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="../../assets/css/animate.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../assets/css/style1.css">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -53,7 +54,7 @@ $customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
                         			<th width="15%">訂購日期</th>
                         			<th width="40%">訂單編號</th>
                               <th width="10%">總金額</th>
-                              <th width="10%">運費</th>
+                              <th width="10%">手續費</th>
                         			<th width="15%">訂單狀態</th>
                               <th width="10%" style="border-right:1px solid #ebebeb;"></th>
                         		</tr>
@@ -69,14 +70,13 @@ $customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
                               	case 0:
                               		echo "未付款";
                               		break;
-
   															case 1:
-  	                            	echo "已付款運送中";
+  	                            	echo "已付款";
   	                            	break;
   															case 2:
-  	                            	echo "配送完成";
+  	                            	echo "交易完成";
   	                            	break;
-  															case 99:
+  															case 3:
   																echo "取消訂單";
   																break;
                               }?>

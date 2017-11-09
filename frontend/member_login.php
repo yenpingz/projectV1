@@ -14,6 +14,7 @@
     <link href="../../assets/js/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css">
 
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
 
   </head>

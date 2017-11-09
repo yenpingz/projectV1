@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('connection/database.php');
 $sth = $db->query("SELECT * FROM news ");/* LIMIT ".$start_from.",". $limit*/
 $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -14,6 +15,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     <title>TRAVELFUNS</title>
     <!-- Bootstrap -->
 	<link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
   <link href="assets/css/animate.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,9 +47,10 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="frontend/member/member_apply.php"><span class="glyphicon glyphicon-log-in"></span>加入會員</a></li>
                 <li><a href="frontend/member/member_login2.php"><span class="glyphicon glyphicon-log-in"></span>會員登入</a></li>
               <?php }else{ ?>
-                <li><a href="frontend/member/member_apply.php"><span class="glyphicon glyphicon-log-in"></span>會員專區</a></li>
-                <a href="frontend/member/member_edit.php"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
-                <li><a href="frontend/member/member_login2.php"><span class="glyphicon glyphicon-log-in"></span>登出</a></li>
+                <li><a href="frontend/member/my_cart.php"><span class="glyphicon glyphicon-log-in"></span>會員專區</a></li>
+
+                <li><a href="frontend/member/member_login2.php"><span class="glyphicon glyphicon-log-in"></span>會員登出</a></li>
+                <li><a href="frontend/member/my_cart  .php"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></li>
               <?php } ?>
 
             </ul>
