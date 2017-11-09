@@ -85,7 +85,7 @@
                       </div>
                       <div class="row slideanim">
                         <div class="col-sm-4 col-xs-12">
-                          <div class="panel panel-default text-center">
+                          <div class="panel panel-default text-center panelist">
                             <div class="panel-heading">
                               <h1>日本行程</h1>
                             </div>
@@ -96,7 +96,7 @@
                           </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                          <div class="panel panel-default text-center">
+                          <div class="panel panel-default text-center panelist">
                             <div class="panel-heading">
                               <h1>歐洲行程</h1>
                             </div>
@@ -107,7 +107,7 @@
                           </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                          <div class="panel panel-default text-center">
+                          <div class="panel panel-default text-center panelist">
                             <div class="panel-heading">
                               <h1>中國行程</h1>
                             </div>

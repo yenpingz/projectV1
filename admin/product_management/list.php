@@ -47,8 +47,8 @@ $total = count($all_product);
               <ul class="dropdown-menu">
                 <li><a href="../order_management/list.php?status=0">未付款</a></li>
                 <li><a href="../order_management/list.php?status=1">已付款</a></li>
-                <li><a href="../order_management/list.php?status=2">行程進行中</a></li>
-                <li><a href="../order_management/list.php?status=3">交易完成</a></li>
+                <li><a href="../order_management/list.php?status=2">交易完成</a></li>
+                <li><a href="../order_management/list.php?status=3">取消訂單</a></li>
               </ul>
             </li>
             <li><a href="list.php">產品管理</a></li>

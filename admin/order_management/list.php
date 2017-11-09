@@ -7,6 +7,7 @@ $start_from = ($page-1) * $limit;
 $sth = $db->query("SELECT * FROM customer_order WHERE status=".$_GET['status']." ORDER BY orderDate DESC LIMIT ".$start_from.",". $limit);
 $all_order = $sth->fetchAll(PDO::FETCH_ASSOC);
 $totalRows = count($all_order);
+$status = $_GET['status'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,8 +49,8 @@ $totalRows = count($all_order);
               <ul class="dropdown-menu">
                 <li><a href="list.php?status=0">未付款</a></li>
                 <li><a href="list.php?status=1">已付款</a></li>
-                <li><a href="list.php?status=2">行程進行中</a></li>
-                <li><a href="list.php?status=3">交易完成</a></li>
+                <li><a href="list.php?status=2">交易完成</a></li>
+                <li><a href="list.php?status=3">取消訂單</a></li>
               </ul>
             </li>
             <li><a href="../productcategory_management/list.php">產品管理</a></li>
@@ -68,7 +69,21 @@ $totalRows = count($all_order);
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>訂單管理-未付款</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>訂單管理-<?php switch ($status) {
+            case 0:
+              echo "未付款";
+              break;
+            case 1:
+              echo "已付款";
+              break;
+            case 2:
+              echo "交易完成";
+              break;
+            case 3:
+              echo "取消訂單";
+              break;
+
+          } ?></strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
@@ -121,13 +136,13 @@ $totalRows = count($all_order);
                                   echo "未付款";
                                   break;
                                 case '1':
-                                  echo "未付款";
+                                  echo "已付款";
                                   break;
                                 case '2':
-                                  echo "未付款";
+                                  echo "交易完成";
                                   break;
                                 case '3':
-                                  echo "未付款";
+                                  echo "取消訂單";
                                   break;
                                 default:
                                   echo "錯誤";

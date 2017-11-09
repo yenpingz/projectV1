@@ -138,8 +138,8 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                               <?php echo $row['content']; ?>
                             </div>
                             <div class="panel-footer">
-                              <h3>NT$<?php echo $row['price']; ?></h3>
-                              <button class="btn btn-lg"><a href="frontend/product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>&id3=0">前往查看</a></button>
+                              <h3>NT$<?php echo $row['price']; ?>起</h3>
+                              <a href="frontend/product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>&id3=0" class="btn btn-lg">前往查看</a>
                             </div>
                           </div>
                         </div>
@@ -178,10 +178,10 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
 					<div id="contact" class="container-fluid">
                       <div class="row">
                         <div class="col-sm-5">
-                          <p>Contact us and we'll get back to you within 24 hours.</p>
-                          <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+                          <p>聯繫我們，我們將在24小時內回覆您。</p>
+                          <p><span class="glyphicon glyphicon-map-marker"></span> 桃園市中壢區</p>
                           <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-                          <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+                          <p><span class="glyphicon glyphicon-envelope"></span> myemail@gmail.com</p>
                         </div>
                         <div class="col-sm-7 slideanim">
                           <div class="row">

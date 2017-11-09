@@ -45,8 +45,8 @@ $all_category = $sth->fetchAll(PDO::FETCH_ASSOC);
               <ul class="dropdown-menu">
                 <li><a href="../order_management/list.php?status=0">未付款</a></li>
                 <li><a href="../order_management/list.php?status=1">已付款</a></li>
-                <li><a href="../order_management/list.php?status=2">行程進行中</a></li>
-                <li><a href="../order_management/list.php?status=3">交易完成</a></li>
+                <li><a href="../order_management/list.php?status=2">交易完成</a></li>
+                <li><a href="../order_management/list.php?status=3">取消訂單</a></li>
               </ul>
             </li>
             <li><a href="../productcategory_management/list.php">產品管理</a></li>

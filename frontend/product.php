@@ -63,7 +63,7 @@ $product = $sth2->fetch(PDO::FETCH_ASSOC);
                           </div>
                         </div>
                         <div class="col-sm-10 col-xs-12">
-                          <div class="panel panel-default">
+                          <div class="panel panel-default" >
                             <div class="panel-heading text-center">
                               <h1><?php echo $product['name']; ?></h1>
                             </div>

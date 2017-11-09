@@ -58,7 +58,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
     <div class="navbar navbar-default navbar-static-top" id="nav">
       <div class="container">
         <div class="navbar-header">
-        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#navbar-ex-collapse">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=	"#navbar-ex-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -69,23 +69,23 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
         </div>
         <div class="collapse navbar-collapse navbar-right" id="myNavbar">
           <ul class="nav navbar-nav navbar-left">
-            <li ><a href="#">頁面管理</a></li>
-            <li ><a href="#">最新優惠管理</a></li>
+            <li ><a href="../page/list.php">頁面管理</a></li>
+            <li ><a href="../news/list.php">最新優惠管理</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">訂單管理<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#1">日本</a></li>
-                <li><a href="#2">大陸</a></li>
-                <li><a href="#3">東南亞</a></li>
-                <li><a href="#4">歐洲</a></li>
+                <li><a href="../order_management/list.php?status=0">未付款</a></li>
+                <li><a href="../order_management/list.php?status=1">已付款</a></li>
+                <li><a href="../order_management/list.php?status=2">交易完成</a></li>
+                <li><a href="../order_management/list.php?status=3">取消訂單</a></li>
               </ul>
             </li>
-            <li><a href="#4">產品管理</a></li>
-            <li><a href="#5">會員管理</a></li>
+            <li><a href="../productcategory_management/list.php">產品管理</a></li>
+            <li><a href="list.php">會員管理</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#6"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="frontend/member_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li></li>
+            <li><a href="../logout.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           </ul>
         </div>
       </div>

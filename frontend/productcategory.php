@@ -41,27 +41,33 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                         <div class="carousel-inner">
 
                           <div class="item active">
+                            <a href="product.php?id=<?php echo $product[0]['productID']; ?>&id2=<?php echo $product[0]['productCategoryID']; ?>">
                             <img src="../uploads/products/<?php echo $product[0]['picture'];?>" alt="Los Angeles" style="width:100%;">
                             <div class="carousel-caption">
                               <h3><?php echo $product[0]['name']; ?></h3>
-                              <p>LA is always so much fun!</p>
+                              <p>Zhangjiajie 5 days !</p>
                             </div>
+                            </a>
                           </div>
 
                           <div class="item">
+                            <a href="product.php?id=<?php echo $product[1]['productID']; ?>&id2=<?php echo $product[1]['productCategoryID']; ?>">
                             <img src="../uploads/products/<?php echo $product[1]['picture'];?>" alt="Chicago" style="width:100%;">
                             <div class="carousel-caption">
                               <h3><?php echo $product[1]['name']; ?></h3>
-                              <p>Thank you, Chicago!</p>
+                              <p>Sichuan 8 days !</p>
                             </div>
+                          </a>
                           </div>
 
                           <div class="item">
+                            <a href="product.php?id=<?php echo $product[2]['productID']; ?>&id2=<?php echo $product[2]['productCategoryID']; ?>">
                             <img src="../uploads/products/<?php echo $product[2]['picture'];?>" alt="New York" style="width:100%;">
                             <div class="carousel-caption">
                               <h3><?php echo $product[2]['name']; ?></h3>
-                              <p>We love the Big Apple!</p>
+                              <p>Shanxi 8 days !</p>
                             </div>
+                            </a>
                           </div>
 
                         <!-- Left and right controls -->
@@ -93,18 +99,17 @@ $product = $sth->fetchAll(PDO::FETCH_ASSOC);
                       <div class="row slideanim">
                         <?php foreach ($product as $row) {  ?>
                         <div class="col-sm-4 col-xs-12">
-                          <div class="panel panel-default text-center">
+                          <div class="panel panel-default text-center panelist">
                             <div class="panel-heading">
                               <h1><?php echo $row['name']; ?></h1>
                             </div>
-                            <img src="../uploads/products/<?php echo $row['picture']; ?>" width="100%"  alt=""/>
+                            <img src="../uploads/products/small/2<?php echo $row['picture']; ?>" width="100%"  alt=""/>
                             <div class="panel-body">
-                              <?php echo mb_substr($row['description'],0,100,"utf-8")."..."; ?>
+                              <?php echo mb_substr($row['description'],0,200,"utf-8")."..."; ?>
                             </div>
                             <div class="panel-footer">
-                              <h3>NT$<?php echo $row['price']; ?></h3>
-
-                              <button class="btn btn-lg"><a href="product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>">查看內容</a></button>
+                              <h3>NT$<?php echo $row['price']; ?>起</h3>
+                              <a href="product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>" class="btn btn-lg">查看內容</a>
                             </div>
                           </div>
                         </div>

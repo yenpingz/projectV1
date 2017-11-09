@@ -76,6 +76,9 @@ body{
       /*box-shadow: 5px 0px 40px rgba(255,255,255, 1);*/
 			box-shadow: 5px 0px 40px rgba(0,0,0, 0.5);
   }
+	.panelist:hover img{
+			opacity: 0.7;
+  }
   .panel-footer .btn:hover {
       border: 1px solid #40befb;
       background-color: #fff !important;

@@ -2,21 +2,19 @@
 require_once("../template/login_check.php");
 require_once("../../connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
-     $sql= "UPDATE productcategory SET
-               area = :area,
-               updatedDate = :updatedDate WHERE productCategoryID=:productCategoryID";
-     $sth = $db ->prepare($sql);
-     $sth ->bindParam(":area", $_POST['area'], PDO::PARAM_STR);
-     $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
-     $sth ->bindParam(":productCategoryID", $_POST['productCategoryID'], PDO::PARAM_INT);
-     $sth -> execute();
+      $sql= "UPDATE customer_order SET status =:status,
+                updatedDate = :updatedDate WHERE customer_orderID=:customer_orderID";
+      $sth = $db ->prepare($sql);
+      $sth ->bindParam(":status", $_POST['status'], PDO::PARAM_INT);
+      $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
+      $sth ->bindParam(":customer_orderID", $_POST['customer_orderID'], PDO::PARAM_INT);
+      $sth -> execute();
 
-     header('Location: list.php');
-   }
-   $sth = $db->query("SELECT * FROM productcategory WHERE productCategoryID=".$_GET['productCategoryID']);
-   $category = $sth->fetch(PDO::FETCH_ASSOC);
-
-
+      header('Location: list.php?status='.$_POST['status']);
+    }
+    $sth = $db->query("SELECT * FROM customer_order WHERE customer_orderID=".$_GET['ID']);
+    $orderone = $sth->fetch(PDO::FETCH_ASSOC);
+    $status=$orderone['status'];
  ?>
 <!DOCTYPE html>
 <html>
@@ -55,8 +53,8 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
               <ul class="dropdown-menu">
                 <li><a href="list.php?status=0">未付款</a></li>
                 <li><a href="list.php?status=1">已付款</a></li>
-                <li><a href="list.php?status=2">行程進行中</a></li>
-                <li><a href="list.php?status=3">交易完成</a></li>
+                <li><a href="list.php?status=2">交易完成</a></li>
+                <li><a href="list.php?status=3">取消訂單</a></li>
               </ul>
             </li>
             <li><a href="../productcategory_management/list.php">產品管理</a></li>
@@ -75,7 +73,21 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
    <div class="section">
     <div class="container" id="area-contant">
     	 <div class="row">
-          <div class="col-lg-12"><h1><strong>地區分類管理-編輯</strong></h1></div>
+          <div class="col-lg-12"><h1><strong>訂單管理-<?php switch ($status) {
+            case 0:
+              echo "未付款";
+              break;
+            case 1:
+              echo "已付款";
+              break;
+            case 2:
+              echo "行程進行中";
+              break;
+            case 3:
+              echo "交易完成";
+              break;
+
+          } ?>編輯</strong></h1></div>
           </div>
         <div class="row">
           <div class="col-md-12">
@@ -99,16 +111,46 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "UPDATE"){
           <form class="form-horizontal" role="form" data-toggle="validator" action="edit.php" method="post">
               <div class="form-group">
                 <div class="col-sm-2">
-                  <label for="area" class="control-label">地區</label>
+                  <label for="updatedDate" class="control-label">訂單日期</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="area" name="area" value="<?php echo $category['area']; ?>" required>
-                  <div class="help-block with-errors"></div>
+                  <?php echo $orderone['orderDate']; ?>
                 </div>
               </div>
+
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="title" class="control-label">訂單編號</label>
+                </div>
+                <div class="col-sm-10">
+                  <?php echo $orderone['orderNO']; ?>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="status" class="control-label">訂單狀態</label>
+                </div>
+                <div class="col-sm-10">
+                    <input type="radio" name="status" value="0" <?php if($orderone['status']==0) echo "checked"; ?>>未付款
+                    <input type="radio" name="status" value="1" <?php if($orderone['status']==1) echo "checked"; ?>>已付款出貨中
+                    <input type="radio" name="status" value="2" <?php if($orderone['status']==2) echo "checked"; ?>>交易完成
+                    <input type="radio" name="status" value="3" <?php if($orderone['status']==3) echo "checked"; ?>>取消訂單
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="title" class="control-label">訂購人</label>
+                </div>
+                <div class="col-sm-10">
+                    <?php  echo $orderone['name']; ?>
+                </div>
+              </div>
+
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
-                  <input type="hidden" name="productCategoryID" value="<?php echo $category['productCategoryID'] ?>">
+                  <input type="hidden" name="customer_orderID" value="<?php echo $orderone['customer_orderID'] ?>">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H-i-s'); ?>">
                   <button type="submit" class="btn btn-primary">送出</button>
