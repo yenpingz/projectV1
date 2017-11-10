@@ -12,6 +12,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="TRAVELFUN2-logo.png">
     <title>TRAVELFUNS</title>
     <!-- Bootstrap -->
 	<link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -28,7 +29,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
     <script src="assets/bootstrap/js/bootstrap.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
   </head>
-  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <body id="myPage" class="bg1" data-spy="scroll" data-target=".navbar" data-offset="60">
 
     <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
@@ -38,7 +39,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-          <a href="#myPage"><img src="TRAVELFUN2-logo.png" width="80" height="50" alt=""/></a>
+          <a href="#myPage"><img src="assets/images/travel2.png" width="80" height="50" alt=""/></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right" style="margin-left:10px;">
@@ -54,13 +55,13 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
               <?php } ?>
 
             </ul>
-          <ul class="nav navbar-nav navbar-right">
-          <li><a href="#news">最新優惠</a></li>
-          <li><a href="frontend/categorylist.php#services">國外旅遊</a></li>
-          <li><a href="frontend/productcategory.php?id=3#portfolio">國內旅遊</a></li>
-          <li><a href="#pricing">自由行</a></li>
-          <li><a href="#contact">聯絡專區</a></li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#news">最新優惠</a></li>
+            <li><a href="frontend/categorylist.php#services">國外旅遊</a></li>
+            <li><a href="frontend/productcategory.php?id=3#portfolio">國內旅遊</a></li>
+            <li><a href="#pricing">自由行</a></li>
+            <li><a href="#contact">聯絡專區</a></li>
+            </ul>
 
           </div>
           </div>
@@ -81,7 +82,7 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
 
                           <div class="item active">
                             <img src="assets/images/cal/product-img_03.jpg" alt="Los Angeles" style="width:100%;">
-                            <div class="carousel-caption">
+                            <div class="carousel-caption fadeInDown">
                               <h3>歐洲湖畔</h3>
                               <p>度假小屋，湖畔的寧靜!</p>
                             </div>
@@ -114,79 +115,42 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                         </a>
                       </div>
                     </div>
-                    <div class="container-fluid">
-                      <div class="row">
-                   			 <h3 class="col-sm-12"></h3>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
-
-
-                    <div id="news" class="container-fluid">
-                      <div class="text-center patom">
-                        <h2>最新旅遊行程</h2>
-                        <h4>優惠行程，優質旅行。</h4>
+                    <div id="news" class="container">
+                      <div class="text-center newstitle">
+                        <h2 >TRAVELFUN</h2>
+                        <h4>創新行程，最低優惠，優質旅遊。</h4>
                       </div>
-                      <div class="row slideanim">
+                      <div class="row">
                         <?php foreach ($all_news as $row) {?>
-                        <div class="col-sm-4 col-xs-12">
-                          <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                              <h1><?php echo $row['title']; ?></h1>
-                            </div>
-                            <img src="assets/images/product/<?php echo $row['picture']; ?>" width="100%"  alt=""/>
-                            <div class="panel-body">
-                              <?php echo $row['content']; ?>
-                            </div>
-                            <div class="panel-footer">
-                              <h3>NT$<?php echo $row['price']; ?>起</h3>
-                              <a href="frontend/product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>&id3=0" class="btn btn-lg">前往查看</a>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="thumbnail">
+                            <img src="assets/images/product/<?php echo $row['picture']; ?>" alt="...">
+                            <div class="caption">
+                              <h3 class="text-center" style="padding-bottom:10px; border-bottom:1px solid black;"><?php echo $row['title']; ?></h3>
+                              <p class="text-center"><?php echo $row['content']; ?></p>
+                              <p class="text-center"><a href="frontend/product.php?id=<?php echo $row['productID']; ?>&id2=<?php echo $row['productCategoryID']; ?>&id3=0" class="btn btn-lg" role="button">前往查看</a></p>
                             </div>
                           </div>
                         </div>
-                        <?php }?>
-                        <!--<div class="col-sm-4 col-xs-12">
-                          <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                              <h1>Pro</h1>
-                            </div>
-                            <div class="panel-body">
-                              <p><strong>50</strong> Lorem</p>
-                              <p><strong>25</strong> Ipsum</p>
-                              <p><strong>10</strong> Dolor</p>
-                              <p><strong>5</strong> Sit</p>
-                              <p><strong>Endless</strong> Amet</p>
-                            </div>
-                            <div class="panel-footer">
-                              <h3>$29</h3>
-                              <h4>per month</h4>
-                              <button class="btn btn-lg">Sign Up</button>
-                            </div>
-                          </div>
-                        </div>-->
-
+                      <?php } ?>
                       </div>
                     </div>
 
 
-
-
-                    <div class="container-fluid" id="contactitle">
-                      <div class="text-center patom">
-                        <h2>聯絡專區</h2>
-                      </div>
-                    </div>
 					<div id="contact" class="container-fluid">
+                      <h2 class="text-center"><span class="fa fa-building" style="margin-right:20px;"></span>聯絡專區</h2>
                       <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-3">
                           <p>聯繫我們，我們將在24小時內回覆您。</p>
                           <p><span class="glyphicon glyphicon-map-marker"></span> 桃園市中壢區</p>
                           <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
                           <p><span class="glyphicon glyphicon-envelope"></span> myemail@gmail.com</p>
                         </div>
-                        <div class="col-sm-7 slideanim">
+                        <div class="col-sm-5 slideanim">
                           <div class="row">
                             <div class="col-sm-6 form-group">
                               <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
@@ -202,16 +166,17 @@ $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                           </div>
                         </div>
+                        <div class="col-sm-2"></div>
+                      </div>
+                      <div class="row footer-margin-top" >
+                          <div class="col-sm-2"></div>
+                           <div class="col-sm-6">
+                              <h1>TRAVELFUNS</h1>
+                              <p contenteditable="true">版權所有 © 2017 &nbsp; St XXXXXX All Right Reserved.</p>
+                            </div>
                       </div>
                     </div>
-                      <div id="footer" class="container-fluid">
-                        <div class="row">
-                        <div class="col-sm-2"></div>
-                             <div class="col-sm-6">
-                                <h1>TRAVELFUNS</h1>
-                                <p contenteditable="true">版權所有 © 2017 &nbsp; St XXXXXX All Right Reserved.</p>
-                              </div>
-                        </div>
+                      <div id="footer">
                       </div>
 
   </body>

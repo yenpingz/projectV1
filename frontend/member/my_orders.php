@@ -11,6 +11,7 @@ $customer_orders= $sth->fetchALL(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../TRAVELFUN2-logo.png">
     <title>我的訂單-會員專區</title>
     <!-- Bootstrap -->
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">

@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a href="../index.php#myPage"><img src="../TRAVELFUN2-logo.png" width="80" height="50" alt=""/></a>
+      <a href="../index.php#myPage"><img src="../assets/images/travel2.png" width="80" height="50" alt=""/></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right" style="margin-left:10px;">

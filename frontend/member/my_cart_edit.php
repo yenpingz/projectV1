@@ -10,6 +10,7 @@ require_once("../template/login_check.php");
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../../TRAVELFUN2-logo.png">
     <title>Untitled Document</title>
     <!-- Bootstrap -->
 	<link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
